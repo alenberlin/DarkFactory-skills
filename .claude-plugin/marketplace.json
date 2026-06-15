@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "darkfactory-skills",
+  "description": "A practical engineering skill set for AI coding agents: spec, build, test, review, and ship — with review personas, a session hook, and an optional autonomous workflow.",
+  "owner": {
+    "name": "Alen Mikic",
+    "url": "https://alen-ai.com"
+  },
+  "plugins": [
+    {
+      "name": "darkfactory",
+      "source": {
+        "source": "github",
+        "repo": "alenberlin/DarkFactory-skills"
+      },
+      "description": "15 lifecycle skills, 4 review personas, and an optional autonomous build workflow — from spec to ship.",
+      "license": "Apache-2.0",
+      "keywords": ["skills", "agents", "tdd", "review", "ship", "polyglot", "workflow"]
+    }
+  ]
+}

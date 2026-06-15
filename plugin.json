@@ -1,0 +1,19 @@
+{
+  "name": "darkfactory",
+  "version": "0.1.0",
+  "description": "Senior-engineer discipline for AI coding agents: spec, build, test, review, and ship — with an optional autonomous workflow.",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Alen Mikic",
+    "url": "https://alen-ai.com"
+  },
+  "commands": "./commands",
+  "skills": "./skills",
+  "hooks": "./hooks/hooks.json",
+  "agents": [
+    "./agents/code-reviewer.md",
+    "./agents/security-auditor.md",
+    "./agents/test-engineer.md",
+    "./agents/performance-auditor.md"
+  ]
+}
