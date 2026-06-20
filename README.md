@@ -1,4 +1,4 @@
-# Dark Factory Skills — Unleash the agents of construction
+# Dark Factory Skills — Unleash the agents of construction!
 
 ![Dark Factory Skills](assets/logo.png)
 
