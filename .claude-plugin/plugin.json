@@ -1,12 +1,13 @@
 {
   "name": "darkfactory",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Senior-engineer discipline for AI coding agents: spec, build, test, review, and ship — with an optional autonomous workflow.",
   "license": "Apache-2.0",
   "author": {
     "name": "Alen Mikic",
     "url": "https://alen-ai.com"
   },
+  "repository": "https://github.com/alenberlin/DarkFactory-skills",
   "commands": "./commands",
   "skills": "./skills",
   "hooks": "./hooks/hooks.json",

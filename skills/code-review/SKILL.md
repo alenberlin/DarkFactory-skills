@@ -56,7 +56,7 @@ Categorize every finding. Cite `file:line` and give a concrete fix recommendatio
 
 ## Step 4 — Let the developer decide
 
-Stop after the report. Don't start fixing, and don't suggest fixes beyond the recommendations unless asked. Wait for the developer to fix, to mark something intentional, or to confirm it's ready. The developer owns the quality decision; the review informs it. (For thorough or pre-merge reviews, this skill is also embodied by the `code-reviewer` persona, which `/review` and `/ship` invoke in a fresh context.)
+Stop after the report. Don't start fixing, and don't suggest fixes beyond the recommendations unless asked. Wait for the developer to fix, to mark something intentional, or to confirm it's ready. The developer owns the quality decision; the review informs it. (For thorough or pre-merge reviews, this skill is also embodied by the `code-reviewer` persona, which `/review` and `/ship` invoke in a fresh context.) In an unattended orchestrator run there is no developer mid-loop: the orchestrator acts on Critical and Important findings itself and records Suggestions — see the pack's `ORCHESTRATOR.md`.
 
 ## Red Flags
 

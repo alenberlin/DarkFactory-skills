@@ -48,7 +48,7 @@ Dark Factory gives an AI coding agent the workflows a senior engineer follows by
 
 ## Personas (4)
 
-`code-reviewer` · `security-auditor` · `test-engineer` · `performance-auditor` — fresh-context sub-agents, each reviewing your work from a single perspective. Slash commands invoke them; they never invoke each other. `/ship` runs all four in parallel and merges their findings into one go/no-go decision.
+`code-reviewer` · `security-auditor` · `test-engineer` · `performance-auditor` — fresh-context sub-agents, each reviewing your work from a single perspective. Slash commands invoke them; they never invoke each other. `/ship` fans them out in parallel (performance only when the change is user-facing) and merges their findings into one go/no-go decision. Details: [docs/PERSONAS.md](docs/PERSONAS.md).
 
 ## Commands (6)
 
@@ -65,7 +65,7 @@ For a single feature or a whole app, `/darkfactory` runs the full lifecycle in o
 /plugin install darkfactory@darkfactory-skills
 ```
 
-The `SessionStart` hook loads the `using-skills` meta-skill automatically (requires `jq`).
+The `SessionStart` hook loads the `using-skills` meta-skill automatically at the start of every session.
 
 ## License
 

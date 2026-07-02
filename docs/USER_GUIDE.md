@@ -70,13 +70,7 @@ The skills are plain `SKILL.md` files, so they work anywhere that reads the form
 
 ### Verify it loaded
 
-Start a new session. If the hook is working you'll see the `using-skills` meta-skill injected (the discovery flowchart + operating behaviors). The hook needs **`jq`** on your PATH:
-
-```bash
-jq --version || brew install jq   # macOS;  apt-get install jq on Linux
-```
-
-If `jq` is missing, the skills still work individually — you just lose the automatic session-start injection.
+Start a new session. If the hook is working you'll see the `using-skills` meta-skill injected at session start (the discovery flowchart + operating behaviors). If it isn't there, check the plugin is installed and enabled (`/plugin`), then start a fresh session.
 
 ---
 
@@ -251,6 +245,7 @@ Agent: [Milestone 1/3] endpoint + auth + pagination
          fix needed: empty state renders blank → diagnosed → fixed → green ✓
        [Integration] full suite green; five-axis review clean.
        Done — all acceptance criteria pass. 3 commits on the branch.
+       Report: docs/darkfactory/REPORT.md — evidence per criterion.
 ```
 
 You approved once, at "Blueprint ready." Everything after it ran on its own.
@@ -260,7 +255,7 @@ You approved once, at "Blueprint ready." Everything after it ran on its own.
 "No babysitting" includes knowing when *to* stop. The workflow comes back to you only when it genuinely should:
 
 - a decision is needed that the blueprint didn't settle (it won't silently guess something load-bearing);
-- a milestone keeps failing past its retry budget — a sign the approach may be wrong, so it surfaces the diagnosis instead of thrashing;
+- a milestone that later work depends on keeps failing past its retry budget — a sign the approach may be wrong, so it surfaces the diagnosis instead of thrashing (an independent milestone is marked blocked and the run continues, reporting it at the end);
 - an action is **irreversible or reaches outside your workspace** — deploying, deleting data, touching secrets, sending external requests (these always ask first);
 - it's missing access, a credential, or a tool it needs.
 
@@ -365,7 +360,7 @@ Anything after the command is passed straight in as context (e.g. `/ship staged 
 
 ## 8. Personas and the `/ship` fan-out
 
-Personas are fresh-context reviewers. The power move is `/ship`, which runs them **in parallel** and merges the results:
+Personas are fresh-context reviewers ([reference](PERSONAS.md)). The power move is `/ship`, which runs them **in parallel** and merges the results:
 
 ```
                     ┌─→ code-reviewer      ─┐
@@ -447,7 +442,7 @@ These appear in *your* project, not in the pack. Commit them or add them to `.gi
 | Path | Created by | What it holds |
 |---|---|---|
 | `.darkfactory` | the `/darkfactory` workflow | Your per-project engage/ignore choice for the workflow. One line. |
-| `docs/darkfactory/PRD.md` + `PLAN.md` + `PROGRESS.md` | the `/darkfactory` workflow | The approved blueprint, the phased plan, and the live milestone ledger. |
+| `docs/darkfactory/PRD.md` + `PLAN.md` + `PROGRESS.md` + `REPORT.md` | the `/darkfactory` workflow | The approved blueprint, the phased plan, the live milestone ledger, and the completion report. |
 | `.memory/<date>-<feature>.md` + `.memory/INDEX.md` | `memory-and-context` | Per-session handoff notes (one file per session, never overwritten). **Secrets are never written here.** |
 | `ui-registry.md` | `ui-engineering` | The visual-consistency ledger — exact classes/tokens each component type uses. |
 | `docs/adr/ADR-NNN-*.md` | `memory-and-context` | Architecture Decision Records — the *why* behind durable decisions. |
@@ -466,7 +461,7 @@ These appear in *your* project, not in the pack. Commit them or add them to `.gi
 
 **The workflow paused and asked me something — is that a bug?** No, that's the escape hatch (see §5). It comes back to you only when a decision genuinely needs you or an action is risky.
 
-**Skills aren't activating.** Make sure the plugin/skills are installed and a *new* session started. Check `jq` is installed (the session-start hook needs it). Without the hook, name the skill explicitly: *"Use test-driven-development for this."*
+**Skills aren't activating.** Make sure the plugin/skills are installed and a *new* session started. Without the hook, name the skill explicitly: *"Use test-driven-development for this."*
 
 **It keeps asking me questions / planning a tiny change.** `architect` is for non-trivial work. For an obvious one-liner, just ask for the change — the skill is designed to stay out of the way of mechanical edits. If it over-plans, say "skip the planning, just make the change."
 

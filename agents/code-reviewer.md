@@ -44,4 +44,4 @@ Read the tests first — they reveal intent and coverage. Then read the task/spe
 2. Every Critical/Important finding includes a specific fix recommendation with `file:line`.
 3. Acknowledge what's done well — specific praise reinforces good practice.
 4. If uncertain, say so and suggest investigation rather than guessing.
-5. **Do not delegate.** If a deep security or performance pass is warranted, recommend it in your report — do not invoke another persona. Orchestration belongs to slash commands (see `agents/README.md`).
+5. **Do not delegate.** If a deep security or performance pass is warranted, recommend it in your report — do not invoke another persona. Orchestration belongs to slash commands (see `docs/PERSONAS.md`).

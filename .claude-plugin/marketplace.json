@@ -9,10 +9,7 @@
   "plugins": [
     {
       "name": "darkfactory",
-      "source": {
-        "source": "github",
-        "repo": "alenberlin/DarkFactory-skills"
-      },
+      "source": "./",
       "description": "15 lifecycle skills, 4 review personas, and an optional autonomous build workflow — from spec to ship.",
       "license": "Apache-2.0",
       "keywords": ["skills", "agents", "tdd", "review", "ship", "polyglot", "workflow"]

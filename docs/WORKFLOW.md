@@ -9,7 +9,7 @@ It is **off by default.** Simple, one-off tasks are untouched. You engage it del
 1. **Discovery** — the `architect` skill interviews you to absolute clarity on intent, tech stack, functionality, and non-goals, then writes a blueprint (a PRD and a phased plan with acceptance criteria) into your project.
 2. **Approval (the one checkpoint)** — you approve the blueprint. Nothing is built before this; little interrupts you after.
 3. **Autonomous loop** — milestone by milestone, the agent builds, tests, fixes, and commits, without pausing between milestones, until each milestone's acceptance criteria pass.
-4. **Integration & review** — whole-app verification plus a five-axis review, looping until the project's acceptance criteria pass and no critical issues remain.
+4. **Integration & review** — whole-app verification plus a five-axis review, looping until the project's acceptance criteria pass and no critical issues remain, then a completion report (`REPORT.md`) with the evidence.
 
 Deployment is deliberately secondary, and never automatic.
 
@@ -53,6 +53,7 @@ Commit it to share the decision with your team, or add it to `.gitignore` to kee
 | `docs/darkfactory/PRD.md` | The blueprint: scope, acceptance criteria, non-goals. |
 | `docs/darkfactory/PLAN.md` | Phased milestones, each with acceptance criteria. |
 | `docs/darkfactory/PROGRESS.md` | Milestone status — the loop is resumable and visible. |
+| `docs/darkfactory/REPORT.md` | The completion report — acceptance criteria with evidence, how to run the app, anything blocked. |
 | `.memory/` | Session handoff and pickup (via `memory-and-context`). |
 
 ## Relationship to the session hook

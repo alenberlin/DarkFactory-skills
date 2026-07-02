@@ -40,7 +40,7 @@ Read the latest `.memory/` file and `INDEX.md`, plus existing project context fi
 Restored. Last session: [built]. State: [works now].
 Decisions locked: [...]. Next up: [...]. Correct? (yes / fix anything off)
 ```
-Never surface a raw secret from restored context — summarize in redacted form. If memory is missing or unclear, say exactly what's absent and let the developer decide whether to proceed.
+In an unattended run under an approved blueprint (see the pack's `ORCHESTRATOR.md`), the summary is informational — state it and continue; the blueprint approval stands in for confirmation. Never surface a raw secret from restored context — summarize in redacted form. If memory is missing or unclear, say exactly what's absent and let the developer decide whether to proceed.
 
 ## Record — decisions worth keeping (ADR-lite)
 
@@ -69,6 +69,6 @@ Right context, right time. Load what the current task needs; don't drag stale, i
 
 - [ ] Memory saved as a per-session file, not an overwrite
 - [ ] A secret-scrub pass ran before writing; nothing sensitive persisted
-- [ ] Restore was confirmed with the developer before work continued
+- [ ] Restore was confirmed with the developer before work continued (in an unattended run: stated, with the approved blueprint standing in)
 - [ ] Durable decisions captured as ADRs, not left in the transcript
 - [ ] Only relevant context was loaded for the task

@@ -10,4 +10,4 @@ Read the orchestrator at `ORCHESTRATOR.md` in the root of the Dark Factory pack 
 
 First, record engagement so the gate will not ask again here: ensure a `.darkfactory` file in the project root contains `engage`. Then start at the orchestrator's **On entry** step — resume from an existing blueprint and progress ledger if one is present, otherwise begin Phase 0 (discovery).
 
-The blueprint is the single approval gate. Once you approve it, the loop runs autonomously under the orchestrator's escalation rules — pausing only when a decision is genuinely required, a milestone fails past its retry budget, or an action is irreversible or reaches outside the workspace.
+The blueprint is the single approval gate. Once you approve it, the loop runs autonomously under the orchestrator's escalation rules — pausing only when a decision is genuinely required, a milestone that later work depends on fails past its retry budget (independent ones are marked blocked and the loop continues), or an action is irreversible or reaches outside the workspace.

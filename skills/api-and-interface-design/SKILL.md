@@ -57,7 +57,7 @@ Use status codes for their meaning (400 client error, 404 missing, 409 conflict,
 At a module boundary, expose the minimum. Keep internal types internal; export a deliberate public surface. Dependencies flow one direction — UI depends on services, not the reverse.
 
 ### 4. Plan versioning before you ship
-Additive fields are safe. Removing or renaming is breaking. For HTTP, version when you must break (`/v2/...`); for libraries, deprecate before removing — see `deprecation` notes in `git-and-shipping`.
+Additive fields are safe. Removing or renaming is breaking. For HTTP, version when you must break (`/v2/...`); for libraries, deprecate before removing.
 
 ### 5. Validate at the boundary
 Untrusted input is validated and typed the moment it crosses in — never trust the caller. See `security-and-hardening`.

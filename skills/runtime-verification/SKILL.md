@@ -16,7 +16,7 @@ Reading the diff tells you what the code says; it does not tell you what the run
 - Diagnosing whether a bug is HTML, CSS, JS, data, or network
 - Before claiming a UI change "works"
 
-**When NOT to use:** pure backend logic fully covered by tests, or environments with no observability available (fall back to `test-driven-development` and logging via `observability` notes).
+**When NOT to use:** pure backend logic fully covered by tests, or environments with no observability available (fall back to `test-driven-development` and structured logging).
 
 ## Process
 

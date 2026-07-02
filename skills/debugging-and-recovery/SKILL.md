@@ -55,7 +55,7 @@ Before ending the session, extract what's worth keeping:
 - What to avoid next time: [specific approaches that didn't work]
 - Starting point: [what to keep, what to discard]
 ```
-Then: save the note via `memory-and-context`, end this session, start fresh, restore, and re-approach with the note as context. Do not keep patching here.
+Then: save the note via `memory-and-context`, end this session, start fresh, restore, and re-approach with the note as context. Do not keep patching here. (In an unattended orchestrator run, where ending the session isn't an option, hand the milestone back as failed past budget with the reset note attached — see the pack's `ORCHESTRATOR.md`.)
 
 ## Step 3C — Rethink (Mode 3)
 
