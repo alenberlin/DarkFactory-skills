@@ -1,8 +1,12 @@
 # Dark Factory Skills — Unleash the agents of construction!
 
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](CHANGELOG.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 ![Dark Factory Skills](assets/logo.png)
 
-**Senior-engineer discipline for AI coding agents.**
+**Senior-engineer discipline for AI coding agents. Open source under Apache 2.0.**
 
 Dark Factory gives an AI coding agent the workflows a senior engineer follows by habit: align before building, work in small verified steps, prove it runs, review for correctness, and ship with a way back. Fifteen skills cover the full development lifecycle and activate on their own when a task calls for them, so the right discipline runs at the right moment. For larger jobs, an optional autonomous workflow runs that whole lifecycle end to end from a single planning checkpoint.
 
@@ -66,6 +70,12 @@ For a single feature or a whole app, `/darkfactory` runs the full lifecycle in o
 ```
 
 The `SessionStart` hook loads the `using-skills` meta-skill automatically at the start of every session.
+
+## Community
+
+- **[Contributing](CONTRIBUTING.md)** — how to contribute skills, improvements, and bug fixes
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** — Contributor Covenant 2.1
+- **[Changelog](CHANGELOG.md)** — version history
 
 ## License
 
