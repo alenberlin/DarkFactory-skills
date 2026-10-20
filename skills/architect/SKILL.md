@@ -1,7 +1,14 @@
 ---
 name: architect
-description: Aligns on what to build before any code is written — clarifies intent, agrees on vocabulary, settles the decisions that change the implementation, and produces a short spec and ordered plan. Use when starting a new feature or change. Use when a request is underspecified, ambiguous, or only exists as a rough idea.
+description: "Aligns on what to build before any code is written — clarifies intent, agrees on vocabulary, settles the decisions that change the implementation, and produces a short spec and ordered plan. Use when starting a new feature or change. Use when a request is underspecified, ambiguous, or only exists as a rough idea."
 ---
+
+## Autopilot handoff
+
+For a complete product, produce architecture, data model, API contracts, design decisions, threat model, dependency plan and verification strategy alongside the PRD. Scale detail to the approved scope. Include unresolved material decisions and explicit commit/integration permissions before proposing the blueprint. Routine decisions inside an approved task do not require another interview.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Architect
 
@@ -9,7 +16,7 @@ description: Aligns on what to build before any code is written — clarifies in
 
 This is the thinking session that happens before the building session. A senior engineer does not start coding the moment a task arrives — they make sure both people are building the same thing in their heads first. This skill surfaces the decisions that matter, aligns on language, and produces a lightweight spec and ordered plan you confirm before anything gets built.
 
-It scales to the work. A one-line change gets one round of alignment; a new feature gets the full pass. It is a thinking session, not an interrogation, and not a 20-page PRD.
+It scales to the work. A one-line change gets one round of alignment; a new feature gets the full pass. It is a thinking session, not an interrogation, and a full product receives the complete PRD and technical blueprint.
 
 ## When to Use
 

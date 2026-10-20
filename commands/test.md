@@ -1,5 +1,5 @@
 ---
-description: Drive a change with tests — failing test first, reproduction test for bugs — and prove it works.
+description: "Drive a change with tests — failing test first, reproduction test for bugs — and prove it works."
 ---
 
 Apply the `test-driven-development` skill.

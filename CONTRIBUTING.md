@@ -6,7 +6,7 @@ Thanks for helping make AI coding agents better! Here's how to contribute.
 
 1. **Find something to work on.** Check [open issues](https://github.com/alenberlin/DarkFactory-skills/issues) or open one yourself.
 2. **Fork and clone.** Standard GitHub flow.
-3. **Make your change.** Skills are markdown — no build step needed.
+3. **Make your change.** Skills are Markdown; runtime changes also require the executable checks below.
 4. **Open a PR.** Describe what you changed and why. Link any related issues.
 
 ## What to contribute
@@ -35,7 +35,17 @@ Review personas are specialized sub-agents. To contribute a new one:
 
 1. Open an issue explaining the perspective (what kind of review it does, why the existing four don't cover it)
 2. Write it following the pattern in `agents/`
-3. Register it in `hooks/hooks.json` if it needs auto-loading
+3. Register it in `.claude-plugin/plugin.json` and the runtime role routing; roles never auto-grant permissions
+
+## Runtime verification
+
+Use the supported Python/SQLite environment documented in `docs/AUTOPILOT.md`.
+Run the relevant narrow test first, then `uv run ruff check src tests scripts`,
+`uv run mypy`, `uv run pytest`, `uv build`, and
+`uv run python scripts/validate_pack.py`. Regenerate contracts with
+`uv run python scripts/export_schemas.py`; do not edit generated schemas or
+lockfiles by hand. Real Docker/Git tests must remain real. Label offline fixtures
+separately from live provider evidence, and preserve failed evidence and known gaps.
 
 ### Documentation
 

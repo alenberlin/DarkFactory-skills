@@ -1,7 +1,14 @@
 ---
 name: runtime-verification
-description: Verifies behavior against real runtime data — DOM, console, network, and screenshots — usually via a browser/DevTools MCP. Use when building or debugging anything that runs in a browser, or whenever you need to confirm a change actually works at runtime rather than inferring it from the code.
+description: "Verifies behavior against real runtime data — DOM, console, network, and screenshots — usually via a browser/DevTools MCP. Use when building or debugging anything that runs in a browser, or whenever you need to confirm a change actually works at runtime rather than inferring it from the code."
 ---
+
+## Autopilot handoff
+
+Tie browser/API observations to requirement IDs and source identity. Check primary flows, error/empty/loading states, permissions and accessibility against the real running product. Provide uncovered areas explicitly. The trusted runtime records actual outcomes; screenshots and model assertions alone cannot pass required criteria.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Runtime Verification
 

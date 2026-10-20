@@ -1,0 +1,782 @@
+{
+  "$defs": {
+    "Blueprint": {
+      "additionalProperties": false,
+      "description": "Approved project inputs with complete, acyclic requirement traceability.",
+      "properties": {
+        "schema_version": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "version": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Version",
+          "type": "integer"
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "architecture": {
+          "maxLength": 100000,
+          "minLength": 1,
+          "title": "Architecture",
+          "type": "string"
+        },
+        "requirements": {
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "title": "Requirements",
+          "type": "array"
+        },
+        "tasks": {
+          "items": {
+            "$ref": "#/$defs/TaskSpec"
+          },
+          "maxItems": 2000,
+          "minItems": 1,
+          "title": "Tasks",
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/CheckSpec"
+          },
+          "maxItems": 200,
+          "minItems": 1,
+          "title": "Checks",
+          "type": "array"
+        },
+        "non_goals": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Non Goals",
+          "type": "array"
+        },
+        "mode": {
+          "$ref": "#/$defs/Mode",
+          "default": "strict"
+        },
+        "adapter": {
+          "default": "claude",
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Adapter",
+          "type": "string"
+        },
+        "image": {
+          "default": "python:3.14-slim",
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Image",
+          "type": "string"
+        },
+        "permissions": {
+          "$ref": "#/$defs/Permissions"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "inference": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InferenceSpec"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "role_bindings": {
+          "items": {
+            "$ref": "#/$defs/RoleConfiguration"
+          },
+          "maxItems": 14,
+          "title": "Role Bindings",
+          "type": "array"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/$defs/PlanningDocument"
+          },
+          "maxItems": 6,
+          "title": "Documents",
+          "type": "array"
+        },
+        "delivery": {
+          "$ref": "#/$defs/DeliverySpec"
+        }
+      },
+      "required": [
+        "name",
+        "architecture",
+        "requirements",
+        "tasks",
+        "checks"
+      ],
+      "title": "Blueprint",
+      "type": "object"
+    },
+    "CheckSpec": {
+      "additionalProperties": false,
+      "description": "A protected executable definition, independent of agent-written reports.",
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Argv",
+          "type": "array"
+        },
+        "kind": {
+          "pattern": "^(test|build|typecheck|lint|security|runtime|performance|qa)$",
+          "title": "Kind",
+          "type": "string"
+        },
+        "requirement_ids": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "title": "Requirement Ids",
+          "type": "array"
+        },
+        "timeout_seconds": {
+          "default": 120,
+          "maximum": 3600,
+          "minimum": 1,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "allow_skipped_tests": {
+          "default": false,
+          "title": "Allow Skipped Tests",
+          "type": "boolean"
+        },
+        "expected_output": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Output"
+        },
+        "driver": {
+          "anyOf": [
+            {
+              "maxLength": 100000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Driver"
+        },
+        "service_argv": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Service Argv"
+        },
+        "toolchain_probe": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Toolchain Probe"
+        }
+      },
+      "required": [
+        "id",
+        "argv",
+        "kind"
+      ],
+      "title": "CheckSpec",
+      "type": "object"
+    },
+    "DeliverySpec": {
+      "additionalProperties": false,
+      "description": "Approved documentation required in the actual integrated source before delivery.",
+      "properties": {
+        "required_files": {
+          "items": {
+            "pattern": "^[A-Za-z0-9_./-]{1,200}$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Required Files",
+          "type": "array"
+        }
+      },
+      "title": "DeliverySpec",
+      "type": "object"
+    },
+    "FileEdit": {
+      "additionalProperties": false,
+      "description": "Untrusted proposed source edit, applied only through the execution broker.",
+      "properties": {
+        "path": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "maxLength": 1000000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "title": "FileEdit",
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "description": "Reviewer judgment with scope and a concrete required correction.",
+      "properties": {
+        "severity": {
+          "pattern": "^(blocking|warning|info)$",
+          "title": "Severity",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "criterion": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Criterion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "severity",
+        "description",
+        "criterion"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "InferenceSpec": {
+      "additionalProperties": false,
+      "description": "Approved model, isolated CLI image and measurable per-attempt inference limits.",
+      "properties": {
+        "provider": {
+          "pattern": "^(anthropic|openai)$",
+          "title": "Provider",
+          "type": "string"
+        },
+        "model": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "agent_image": {
+          "maxLength": 300,
+          "minLength": 1,
+          "title": "Agent Image",
+          "type": "string"
+        },
+        "gateway_image": {
+          "default": "python:3.12-slim",
+          "title": "Gateway Image",
+          "type": "string"
+        },
+        "attempt_tokens": {
+          "default": 30000,
+          "maximum": 1000000,
+          "minimum": 100,
+          "title": "Attempt Tokens",
+          "type": "integer"
+        },
+        "max_output_tokens": {
+          "default": 4096,
+          "maximum": 32768,
+          "minimum": 100,
+          "title": "Max Output Tokens",
+          "type": "integer"
+        },
+        "input_microusd_per_token": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Microusd Per Token"
+        },
+        "output_microusd_per_token": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Microusd Per Token"
+        }
+      },
+      "required": [
+        "provider",
+        "model",
+        "agent_image"
+      ],
+      "title": "InferenceSpec",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "description": "Run bounds recorded with approval and enforced before dispatch.",
+      "properties": {
+        "concurrency": {
+          "default": 2,
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Concurrency",
+          "type": "integer"
+        },
+        "max_attempts": {
+          "default": 3,
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Max Attempts",
+          "type": "integer"
+        },
+        "max_tokens": {
+          "default": 100000,
+          "minimum": 1,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "max_cost_microusd": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Cost Microusd"
+        },
+        "command_seconds": {
+          "default": 300,
+          "maximum": 3600,
+          "minimum": 1,
+          "title": "Command Seconds",
+          "type": "integer"
+        },
+        "memory_mb": {
+          "default": 1024,
+          "maximum": 32768,
+          "minimum": 128,
+          "title": "Memory Mb",
+          "type": "integer"
+        },
+        "cpus": {
+          "default": 1,
+          "maximum": 32,
+          "minimum": 1,
+          "title": "Cpus",
+          "type": "integer"
+        },
+        "output_bytes": {
+          "default": 1048576,
+          "maximum": 16777216,
+          "minimum": 1024,
+          "title": "Output Bytes",
+          "type": "integer"
+        },
+        "state_storage_mb": {
+          "default": 4096,
+          "maximum": 1048576,
+          "minimum": 16,
+          "title": "State Storage Mb",
+          "type": "integer"
+        },
+        "require_filesystem_quota": {
+          "default": false,
+          "title": "Require Filesystem Quota",
+          "type": "boolean"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "Mode": {
+      "description": "Declare the requested enforcement guarantee without automatic downgrade.",
+      "enum": [
+        "advisory",
+        "enforced",
+        "strict"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "Permissions": {
+      "additionalProperties": false,
+      "description": "Explicit local effects; external release is separately authorized.",
+      "properties": {
+        "local_commits": {
+          "default": false,
+          "title": "Local Commits",
+          "type": "boolean"
+        },
+        "local_integration": {
+          "default": false,
+          "title": "Local Integration",
+          "type": "boolean"
+        },
+        "approved_network_hosts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Network Hosts",
+          "type": "array"
+        }
+      },
+      "title": "Permissions",
+      "type": "object"
+    },
+    "PlanningDocument": {
+      "additionalProperties": false,
+      "description": "A bounded reviewable artifact whose path cannot overwrite factory authority.",
+      "properties": {
+        "name": {
+          "pattern": "^(PRD|ARCHITECTURE|DESIGN|PLAN|THREAT_MODEL|DECISIONS)\\.md$",
+          "title": "Name",
+          "type": "string"
+        },
+        "content": {
+          "maxLength": 100000,
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "content"
+      ],
+      "title": "PlanningDocument",
+      "type": "object"
+    },
+    "Requirement": {
+      "additionalProperties": false,
+      "description": "A scope item with an observable acceptance criterion.",
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "acceptance": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Acceptance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "acceptance"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    },
+    "Role": {
+      "description": "Roles the trusted scheduler can assign to bounded agent attempts.",
+      "enum": [
+        "factory-orchestrator",
+        "product-analyst",
+        "software-architect",
+        "implementation-planner",
+        "backend-engineer",
+        "frontend-engineer",
+        "test-engineer",
+        "security-auditor",
+        "code-reviewer",
+        "performance-auditor",
+        "qa-engineer",
+        "release-engineer",
+        "documentation-engineer",
+        "acceptance-auditor"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "RoleConfiguration": {
+      "additionalProperties": false,
+      "description": "An explicit model binding with a finite role identity and portable JSON schema.",
+      "properties": {
+        "adapter": {
+          "pattern": "^(claude|codex)$",
+          "title": "Adapter",
+          "type": "string"
+        },
+        "inference": {
+          "$ref": "#/$defs/InferenceSpec"
+        },
+        "role": {
+          "$ref": "#/$defs/Role"
+        }
+      },
+      "required": [
+        "adapter",
+        "inference",
+        "role"
+      ],
+      "title": "RoleConfiguration",
+      "type": "object"
+    },
+    "TaskSpec": {
+      "additionalProperties": false,
+      "description": "A requirement-linked assignment and declared component ownership.",
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "requirement_ids": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Requirement Ids",
+          "type": "array"
+        },
+        "dependencies": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "role": {
+          "$ref": "#/$defs/Role",
+          "default": "backend-engineer"
+        },
+        "deliverables": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Deliverables",
+          "type": "array"
+        },
+        "acceptance_criteria": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptance Criteria",
+          "type": "array"
+        },
+        "check_ids": {
+          "items": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "title": "Check Ids",
+          "type": "array"
+        },
+        "permitted_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Permitted Paths",
+          "type": "array"
+        },
+        "security_considerations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Security Considerations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "requirement_ids"
+      ],
+      "title": "TaskSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Proposal protocol excludes authoritative pass, approval and acceptance fields.",
+  "properties": {
+    "status": {
+      "pattern": "^(continue|complete|blocked)$",
+      "title": "Status",
+      "type": "string"
+    },
+    "summary": {
+      "maxLength": 16000,
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/$defs/FileEdit"
+      },
+      "maxItems": 100,
+      "title": "Files",
+      "type": "array"
+    },
+    "commands": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "maxItems": 10,
+      "title": "Commands",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "maxItems": 100,
+      "title": "Findings",
+      "type": "array"
+    },
+    "examined": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Examined",
+      "type": "array"
+    },
+    "unexamined": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unexamined",
+      "type": "array"
+    },
+    "resolved_findings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Resolved Findings",
+      "type": "array"
+    },
+    "questions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Questions",
+      "type": "array"
+    },
+    "proposed_blueprint": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Blueprint"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "status",
+    "summary"
+  ],
+  "title": "AgentReply",
+  "type": "object"
+}

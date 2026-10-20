@@ -1,84 +1,79 @@
-# Dark Factory Skills — Unleash the agents of construction!
+# DarkFactory Autopilot
 
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](CHANGELOG.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+Language-agnostic engineering skills and a local software factory runtime.
+Describe a product, resolve its requirements, approve the complete blueprint,
+and run isolated implementation → verification → independent review → repair →
+integration. The verified delivery awaits your acceptance. Release is separate.
 
-![Dark Factory Skills](assets/logo.png)
+The pack has **24 skills, 14 roles and seven commands**, with a Python runtime,
+transactional SQLite state, Docker execution, protected policy/evidence gates,
+controlled Git integration, a CLI, loopback API and optional dashboard.
+The local implementation includes foreground modes, durable recovery, scoped finding
+exceptions and correction tasks. Engineering checks are recorded against exact source;
+your real-project acceptance and live provider pilot remain pending. [Current evidence and limits](docs/autopilot/PROGRESS.md) are authoritative
+for this upgrade. Skills alone do not enforce policies or run in the background.
 
-**Senior-engineer discipline for AI coding agents. Open source under Apache 2.0.**
+- [Workflow and trust-boundary diagram](docs/autopilot/TAM.md)
+- [Step-by-step setup and trial](docs/GETTING_STARTED.md)
+- [Operating guide and compatibility](docs/AUTOPILOT.md)
+- [User guide](docs/USER_GUIDE.md)
+- [Shared runtime/agent contract](docs/RUNTIME_CONTRACT.md)
+- [Approved upgrade blueprint](docs/autopilot/BLUEPRINT.md)
 
-Dark Factory gives an AI coding agent the workflows a senior engineer follows by habit: align before building, work in small verified steps, prove it runs, review for correctness, and ship with a way back. Fifteen skills cover the full development lifecycle and activate on their own when a task calls for them, so the right discipline runs at the right moment. For larger jobs, an optional autonomous workflow runs that whole lifecycle end to end from a single planning checkpoint.
+## Skill routing
 
-> **New here? Start with the [User Guide](docs/USER_GUIDE.md)** — installation, the mental model, a full worked example, and recipes for everyday workflows.
+| Responsibility | Skills |
+| --- | --- |
+| Discover and define | product-discovery, architect, api-and-interface-design, implementation-planning |
+| Implement | incremental-implementation, ui-engineering, source-driven-development |
+| Verify and repair | test-driven-development, runtime-verification, debugging-and-recovery, quality-assurance |
+| Review and improve | code-review, security-and-hardening, performance-optimization, code-simplification |
+| Operate and integrate | factory-control, durable-execution, policy-enforcement, parallel-integration |
+| Deliver and sustain | acceptance-validation, documentation-delivery, git-and-shipping, memory-and-context |
+| Route | using-skills |
 
+Individual skills remain useful in interactive work. Full Autopilot is opt-in per
+project through `.darkfactory`; `ignore` keeps it inactive unless explicitly
+invoked. Approval records scope, permissions and limits; human acceptance binds
+to the delivery revision. Python, Node.js/TypeScript, Rust and mixed targets use
+the same lifecycle with project-selected toolchain images and real commands.
+
+## Local runtime
+
+```sh
+uv sync --python /path/to/python-with-supported-sqlite
+uv run factory --help
+uv run python scripts/export_schemas.py
+uv run python scripts/validate_pack.py
+uv run ruff check src tests scripts
+uv run mypy
+uv run pytest
+uv build
 ```
- DEFINE        BUILD                 VERIFY            REVIEW              SHIP
-┌────────┐   ┌──────────────────┐   ┌────────────┐   ┌──────────────┐   ┌────────────┐
-│architect│→ │incremental-impl  │→  │tdd         │→  │code-review   │→  │git-and-ship│
-│         │  │ui-engineering    │   │runtime-veri│   │simplification│   │            │
-│api-design│ │source-driven     │   │debugging   │   │security      │   │            │
-└────────┘   └──────────────────┘   └────────────┘   │performance   │   └────────────┘
-   /architect      /build              /test          └──────────────┘      /ship
-                                                          /review
-```
 
-## Principles
+Python 3.12+ and SQLite 3.51.3+ are required. Tests exercise actual Docker and Git;
+provision the declared local test images using the operating guide. Native CLI
+and provider conformance are recorded separately from offline fixture tests.
+No global service or configuration is installed automatically.
 
-- **Focused.** Each skill covers a distinct phase of building software — nothing overlaps, nothing competes for the same job.
-- **Workflows, not suggestions.** A skill is a process the agent follows in order, and verification is never optional.
-- **You keep the judgment.** Skills surface decisions and trade-offs; the developer makes every call.
-- **Polyglot.** Testing, security, and API guidance cover both TypeScript and Python.
+## Claude Code plugin
 
-## Skills (15)
-
-| Phase | Skill |
-|-------|-------|
-| Meta | `using-skills` — discovery and always-on operating behaviors |
-| Define | `architect` — align, decide, produce a short spec and plan |
-| Define | `api-and-interface-design` — stable, hard-to-misuse contracts |
-| Build | `incremental-implementation` — thin, verified vertical slices |
-| Build | `ui-engineering` — production UI with a consistency registry |
-| Build | `source-driven-development` — APIs verified against current docs |
-| Verify | `test-driven-development` — failing test first |
-| Verify | `runtime-verification` — behavior confirmed against the real runtime |
-| Verify | `debugging-and-recovery` — root cause and failure-mode triage |
-| Review | `code-review` — five-axis review that reports, never auto-fixes |
-| Review | `code-simplification` — clarity over cleverness, behavior preserved |
-| Review | `security-and-hardening` — input, access control, secrets |
-| Review | `performance-optimization` — measure first, optimize what's proven |
-| Ship | `git-and-shipping` — atomic commits, launch checklist, rollback plan |
-| Sustain | `memory-and-context` — session save/restore and lightweight ADRs |
-
-## Personas (4)
-
-`code-reviewer` · `security-auditor` · `test-engineer` · `performance-auditor` — fresh-context sub-agents, each reviewing your work from a single perspective. Slash commands invoke them; they never invoke each other. `/ship` fans them out in parallel (performance only when the change is user-facing) and merges their findings into one go/no-go decision. Details: [docs/PERSONAS.md](docs/PERSONAS.md).
-
-## Commands (6)
-
-`/architect` · `/build` · `/test` · `/review` · `/ship` · `/darkfactory`
-
-## Autonomous workflow
-
-For a single feature or a whole app, `/darkfactory` runs the full lifecycle in one go: it aligns on a blueprint with you, and once you approve it, builds → tests → fixes → reviews milestone by milestone on its own — stopping only when the work meets its acceptance criteria or a decision genuinely needs you. It is opt-in: off by default, engaged per project, and portable across any agent tool. See the [workflow guide](docs/WORKFLOW.md).
-
-## Install (Claude Code)
-
-```
+```text
 /plugin marketplace add alenberlin/DarkFactory-skills
 /plugin install darkfactory@darkfactory-skills
 ```
 
-The `SessionStart` hook loads the `using-skills` meta-skill automatically at the start of every session.
+For this modified folder, use your host's supported local plugin-loading method;
+the remote marketplace release is not updated by these local changes. Commands:
+`/architect`, `/build`, `/test`, `/review`, `/ship`, `/darkfactory`, `/factory`.
+The session hook respects project opt-in and only supplies routing instructions.
+[Roles](docs/PERSONAS.md) are activated per task and cannot grant themselves
+administrative powers.
 
-## Community
+## License and contributions
 
-- **[Contributing](CONTRIBUTING.md)** — how to contribute skills, improvements, and bug fixes
-- **[Code of Conduct](CODE_OF_CONDUCT.md)** — Contributor Covenant 2.1
-- **[Changelog](CHANGELOG.md)** — version history
-
-## License
-
-[Apache License 2.0](LICENSE) © 2026 [Alen Mikic](https://alen-ai.com) — see [NOTICE](NOTICE).
-
-Free to use, modify, and distribute under Apache 2.0. Redistributions must keep the `LICENSE` and `NOTICE` (with your changes noted). If you demo or build on these skills, a credit to **Alen Mikic — [alen-ai.com](https://alen-ai.com)** is appreciated, though not required.
+[Apache License 2.0](LICENSE) © 2026 [Alen Mikic](https://alen-ai.com).
+Preserve [NOTICE](NOTICE) when redistributing. Existing attribution, reference
+checklists and individual engineering guidance are retained.
+[Contribution guidance](CONTRIBUTING.md), [code of conduct](CODE_OF_CONDUCT.md),
+and [changelog](CHANGELOG.md) remain part of the pack.

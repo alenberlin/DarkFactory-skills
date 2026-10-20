@@ -1,0 +1,1898 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DarkFactory Autopilot",
+    "version": "0.3.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Dashboard",
+        "operationId": "dashboard__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets/{name}": {
+      "get": {
+        "summary": "Asset",
+        "operationId": "asset_assets__name__get",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects": {
+      "get": {
+        "summary": "Projects",
+        "operationId": "projects_v1_projects_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Projects V1 Projects Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Propose",
+        "operationId": "propose_v1_projects_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Propose V1 Projects Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/projects/{project}": {
+      "get": {
+        "summary": "Project Report",
+        "operationId": "project_report_v1_projects__project__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Project Report V1 Projects  Project  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/discovery": {
+      "post": {
+        "summary": "Discover",
+        "operationId": "discover_v1_discovery_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiscoveryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Discover V1 Discovery Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/discovery/{project}/answer": {
+      "post": {
+        "summary": "Answer",
+        "operationId": "answer_v1_discovery__project__answer_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Answer V1 Discovery  Project  Answer Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/revise": {
+      "post": {
+        "summary": "Revise",
+        "operationId": "revise_v1_projects__project__revise_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevisionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Revise V1 Projects  Project  Revise Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/retry": {
+      "post": {
+        "summary": "Retry",
+        "operationId": "retry_v1_projects__project__retry_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Retry V1 Projects  Project  Retry Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/review": {
+      "post": {
+        "summary": "Review",
+        "operationId": "review_v1_projects__project__review_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "title": "Response Review V1 Projects  Project  Review Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/usage/{usage}/reconcile": {
+      "post": {
+        "summary": "Reconcile Usage",
+        "operationId": "reconcile_usage_v1_projects__project__usage__usage__reconcile_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          },
+          {
+            "name": "usage",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Usage"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsageRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Reconcile Usage V1 Projects  Project  Usage  Usage  Reconcile Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/approve": {
+      "post": {
+        "summary": "Approve",
+        "operationId": "approve_v1_projects__project__approve_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Approve V1 Projects  Project  Approve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/findings/{finding}/exception": {
+      "post": {
+        "summary": "Grant Exception",
+        "operationId": "grant_exception_v1_projects__project__findings__finding__exception_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          },
+          {
+            "name": "finding",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Finding"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindingExceptionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Grant Exception V1 Projects  Project  Findings  Finding  Exception Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/exceptions/{exception}/revoke": {
+      "post": {
+        "summary": "Revoke Exception",
+        "operationId": "revoke_exception_v1_projects__project__exceptions__exception__revoke_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          },
+          {
+            "name": "exception",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Exception"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Revoke Exception V1 Projects  Project  Exceptions  Exception  Revoke Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/{action}": {
+      "post": {
+        "summary": "Control",
+        "operationId": "control_v1_projects__project___action__post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Action"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Control V1 Projects  Project   Action  Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/deliveries/{project}/accept": {
+      "post": {
+        "summary": "Accept",
+        "operationId": "accept_v1_deliveries__project__accept_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptanceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Accept V1 Deliveries  Project  Accept Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/deliveries/{project}/reject": {
+      "post": {
+        "summary": "Reject",
+        "operationId": "reject_v1_deliveries__project__reject_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptanceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Reject V1 Deliveries  Project  Reject Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/projects/{project}/export": {
+      "get": {
+        "summary": "Export Report",
+        "operationId": "export_report_v1_projects__project__export_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AcceptanceRequest": {
+        "properties": {
+          "revision": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 64,
+            "title": "Revision"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "title": "Reason",
+            "default": ""
+          },
+          "criteria": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Criteria"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "revision"
+        ],
+        "title": "AcceptanceRequest",
+        "description": "Exact delivery digest and optional human rejection feedback."
+      },
+      "AnswerRequest": {
+        "properties": {
+          "answers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Answers"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "answers"
+        ],
+        "title": "AnswerRequest",
+        "description": "Human answers to the pending discovery questions."
+      },
+      "ApprovalRequest": {
+        "properties": {
+          "digest": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 64,
+            "title": "Digest"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "digest"
+        ],
+        "title": "ApprovalRequest",
+        "description": "Exact blueprint digest; callers cannot supply their own approval identity."
+      },
+      "Blueprint": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "maximum": 1.0,
+            "minimum": 1.0,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Version",
+            "default": 1
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "architecture": {
+            "type": "string",
+            "maxLength": 100000,
+            "minLength": 1,
+            "title": "Architecture"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/components/schemas/Requirement"
+            },
+            "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
+            "title": "Requirements"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/TaskSpec"
+            },
+            "type": "array",
+            "maxItems": 2000,
+            "minItems": 1,
+            "title": "Tasks"
+          },
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/CheckSpec"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "minItems": 1,
+            "title": "Checks"
+          },
+          "non_goals": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Non Goals"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/Mode",
+            "default": "strict"
+          },
+          "adapter": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$",
+            "title": "Adapter",
+            "default": "claude"
+          },
+          "image": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Image",
+            "default": "python:3.14-slim"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/Permissions"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/Limits"
+          },
+          "inference": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InferenceSpec"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "role_bindings": {
+            "items": {
+              "$ref": "#/components/schemas/RoleConfiguration"
+            },
+            "type": "array",
+            "maxItems": 14,
+            "title": "Role Bindings"
+          },
+          "documents": {
+            "items": {
+              "$ref": "#/components/schemas/PlanningDocument"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "title": "Documents"
+          },
+          "delivery": {
+            "$ref": "#/components/schemas/DeliverySpec"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "architecture",
+          "requirements",
+          "tasks",
+          "checks"
+        ],
+        "title": "Blueprint",
+        "description": "Approved project inputs with complete, acyclic requirement traceability."
+      },
+      "CheckSpec": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "title": "Id"
+          },
+          "argv": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Argv"
+          },
+          "kind": {
+            "type": "string",
+            "pattern": "^(test|build|typecheck|lint|security|runtime|performance|qa)$",
+            "title": "Kind"
+          },
+          "requirement_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+            },
+            "type": "array",
+            "title": "Requirement Ids"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "maximum": 3600.0,
+            "minimum": 1.0,
+            "title": "Timeout Seconds",
+            "default": 120
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required",
+            "default": true
+          },
+          "allow_skipped_tests": {
+            "type": "boolean",
+            "title": "Allow Skipped Tests",
+            "default": false
+          },
+          "expected_output": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Output"
+          },
+          "driver": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Driver"
+          },
+          "service_argv": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100,
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Argv"
+          },
+          "toolchain_probe": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "maxItems": 100,
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Toolchain Probe"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "argv",
+          "kind"
+        ],
+        "title": "CheckSpec",
+        "description": "A protected executable definition, independent of agent-written reports."
+      },
+      "DeliverySpec": {
+        "properties": {
+          "required_files": {
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_./-]{1,200}$"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Required Files"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "DeliverySpec",
+        "description": "Approved documentation required in the actual integrated source before delivery."
+      },
+      "DiscoveryRequest": {
+        "properties": {
+          "goal": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Goal"
+          },
+          "inference": {
+            "$ref": "#/components/schemas/InferenceSpec"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/Limits"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "adapter": {
+            "type": "string",
+            "pattern": "^(claude|codex)$",
+            "title": "Adapter"
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Profile"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "goal",
+          "inference",
+          "limits",
+          "source",
+          "adapter"
+        ],
+        "title": "DiscoveryRequest",
+        "description": "Explicit human authorization for planning inference, without implementation approval."
+      },
+      "FindingExceptionRequest": {
+        "properties": {
+          "revision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Revision"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "revision",
+          "reason"
+        ],
+        "title": "FindingExceptionRequest",
+        "description": "Explicit human justification bound to one immutable source revision."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ImportRequest": {
+        "properties": {
+          "blueprint": {
+            "$ref": "#/components/schemas/Blueprint"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/Policy"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "blueprint",
+          "source"
+        ],
+        "title": "ImportRequest",
+        "description": "Human-submitted proposed blueprint, policy and local source path."
+      },
+      "InferenceSpec": {
+        "properties": {
+          "provider": {
+            "type": "string",
+            "pattern": "^(anthropic|openai)$",
+            "title": "Provider"
+          },
+          "model": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Model"
+          },
+          "agent_image": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Agent Image"
+          },
+          "gateway_image": {
+            "type": "string",
+            "title": "Gateway Image",
+            "default": "python:3.12-slim"
+          },
+          "attempt_tokens": {
+            "type": "integer",
+            "maximum": 1000000.0,
+            "minimum": 100.0,
+            "title": "Attempt Tokens",
+            "default": 30000
+          },
+          "max_output_tokens": {
+            "type": "integer",
+            "maximum": 32768.0,
+            "minimum": 100.0,
+            "title": "Max Output Tokens",
+            "default": 4096
+          },
+          "input_microusd_per_token": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Input Microusd Per Token"
+          },
+          "output_microusd_per_token": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Microusd Per Token"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "provider",
+          "model",
+          "agent_image"
+        ],
+        "title": "InferenceSpec",
+        "description": "Approved model, isolated CLI image and measurable per-attempt inference limits."
+      },
+      "Limits": {
+        "properties": {
+          "concurrency": {
+            "type": "integer",
+            "maximum": 16.0,
+            "minimum": 1.0,
+            "title": "Concurrency",
+            "default": 2
+          },
+          "max_attempts": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Max Attempts",
+            "default": 3
+          },
+          "max_tokens": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Max Tokens",
+            "default": 100000
+          },
+          "max_cost_microusd": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Cost Microusd"
+          },
+          "command_seconds": {
+            "type": "integer",
+            "maximum": 3600.0,
+            "minimum": 1.0,
+            "title": "Command Seconds",
+            "default": 300
+          },
+          "memory_mb": {
+            "type": "integer",
+            "maximum": 32768.0,
+            "minimum": 128.0,
+            "title": "Memory Mb",
+            "default": 1024
+          },
+          "cpus": {
+            "type": "integer",
+            "maximum": 32.0,
+            "minimum": 1.0,
+            "title": "Cpus",
+            "default": 1
+          },
+          "output_bytes": {
+            "type": "integer",
+            "maximum": 16777216.0,
+            "minimum": 1024.0,
+            "title": "Output Bytes",
+            "default": 1048576
+          },
+          "state_storage_mb": {
+            "type": "integer",
+            "maximum": 1048576.0,
+            "minimum": 16.0,
+            "title": "State Storage Mb",
+            "default": 4096
+          },
+          "require_filesystem_quota": {
+            "type": "boolean",
+            "title": "Require Filesystem Quota",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Limits",
+        "description": "Run bounds recorded with approval and enforced before dispatch."
+      },
+      "Mode": {
+        "type": "string",
+        "enum": [
+          "advisory",
+          "enforced",
+          "strict"
+        ],
+        "title": "Mode",
+        "description": "Declare the requested enforcement guarantee without automatic downgrade."
+      },
+      "Permissions": {
+        "properties": {
+          "local_commits": {
+            "type": "boolean",
+            "title": "Local Commits",
+            "default": false
+          },
+          "local_integration": {
+            "type": "boolean",
+            "title": "Local Integration",
+            "default": false
+          },
+          "approved_network_hosts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Approved Network Hosts"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Permissions",
+        "description": "Explicit local effects; external release is separately authorized."
+      },
+      "PlanningDocument": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^(PRD|ARCHITECTURE|DESIGN|PLAN|THREAT_MODEL|DECISIONS)\\.md$",
+            "title": "Name"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 100000,
+            "minLength": 1,
+            "title": "Content"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "content"
+        ],
+        "title": "PlanningDocument",
+        "description": "A bounded reviewable artifact whose path cannot overwrite factory authority."
+      },
+      "Policy": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "maximum": 1.0,
+            "minimum": 1.0,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "title": "Id",
+            "default": "DF-BASELINE"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Version",
+            "default": 1
+          },
+          "required_check_kinds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Check Kinds"
+          },
+          "required_review_roles": {
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "type": "array",
+            "title": "Required Review Roles"
+          },
+          "protect_test_paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Protect Test Paths"
+          },
+          "allowed_images": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Allowed Images"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Policy",
+        "description": "A schema-versioned policy activated only through trusted administration."
+      },
+      "Profile": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "image": {
+            "type": "string",
+            "title": "Image"
+          },
+          "probe": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Probe"
+          },
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/CheckSpec"
+            },
+            "type": "array",
+            "title": "Checks"
+          },
+          "notes": {
+            "type": "string",
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "image",
+          "probe",
+          "checks",
+          "notes"
+        ],
+        "title": "Profile",
+        "description": "Operator-selected local image and project-owned real verification commands."
+      },
+      "Requirement": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "title": "Id"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "acceptance": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Acceptance"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "acceptance"
+        ],
+        "title": "Requirement",
+        "description": "A scope item with an observable acceptance criterion."
+      },
+      "RevisionRequest": {
+        "properties": {
+          "blueprint": {
+            "$ref": "#/components/schemas/Blueprint"
+          },
+          "policy": {
+            "$ref": "#/components/schemas/Policy"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "blueprint",
+          "policy"
+        ],
+        "title": "RevisionRequest",
+        "description": "A new proposed version that cannot inherit an earlier approval."
+      },
+      "Role": {
+        "type": "string",
+        "enum": [
+          "factory-orchestrator",
+          "product-analyst",
+          "software-architect",
+          "implementation-planner",
+          "backend-engineer",
+          "frontend-engineer",
+          "test-engineer",
+          "security-auditor",
+          "code-reviewer",
+          "performance-auditor",
+          "qa-engineer",
+          "release-engineer",
+          "documentation-engineer",
+          "acceptance-auditor"
+        ],
+        "title": "Role",
+        "description": "Roles the trusted scheduler can assign to bounded agent attempts."
+      },
+      "RoleConfiguration": {
+        "properties": {
+          "adapter": {
+            "type": "string",
+            "pattern": "^(claude|codex)$",
+            "title": "Adapter"
+          },
+          "inference": {
+            "$ref": "#/components/schemas/InferenceSpec"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "adapter",
+          "inference",
+          "role"
+        ],
+        "title": "RoleConfiguration",
+        "description": "An explicit model binding with a finite role identity and portable JSON schema."
+      },
+      "TaskSpec": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "title": "Id"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "requirement_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Requirement Ids"
+          },
+          "dependencies": {
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+            },
+            "type": "array",
+            "title": "Dependencies"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role",
+            "default": "backend-engineer"
+          },
+          "deliverables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Deliverables"
+          },
+          "acceptance_criteria": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Acceptance Criteria"
+          },
+          "check_ids": {
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+            },
+            "type": "array",
+            "title": "Check Ids"
+          },
+          "permitted_paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Permitted Paths"
+          },
+          "security_considerations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Security Considerations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "requirement_ids"
+        ],
+        "title": "TaskSpec",
+        "description": "A requirement-linked assignment and declared component ownership."
+      },
+      "UsageRequest": {
+        "properties": {
+          "tokens": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Tokens"
+          },
+          "cost_microusd": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Microusd"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Reference"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "tokens",
+          "reference"
+        ],
+        "title": "UsageRequest",
+        "description": "Human accounting values for an unknown inference charge, with an audit reference."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

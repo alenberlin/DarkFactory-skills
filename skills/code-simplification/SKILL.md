@@ -1,7 +1,14 @@
 ---
 name: code-simplification
-description: Reduces unnecessary complexity while preserving behavior exactly. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated incidental complexity. Quality only — it does not change what the code does.
+description: "Reduces unnecessary complexity while preserving behavior exactly. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated incidental complexity. Quality only — it does not change what the code does."
 ---
+
+## Autopilot handoff
+
+Simplify only assigned components while preserving the approved behavior and criterion coverage. Submit a new candidate revision; previous passing evidence does not apply to changed source. Do not remove functionality to satisfy a check.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Code Simplification
 

@@ -1,7 +1,7 @@
 {
   "name": "darkfactory",
-  "version": "0.2.0",
-  "description": "Senior-engineer discipline for AI coding agents: spec, build, test, review, and ship — with an optional autonomous workflow.",
+  "version": "0.3.0",
+  "description": "Language-agnostic engineering skills and a local autonomous factory runtime with protected approvals and policy gates.",
   "license": "Apache-2.0",
   "author": {
     "name": "Alen Mikic",
@@ -12,9 +12,19 @@
   "skills": "./skills",
   "hooks": "./hooks/hooks.json",
   "agents": [
+    "./agents/acceptance-auditor.md",
+    "./agents/backend-engineer.md",
     "./agents/code-reviewer.md",
+    "./agents/documentation-engineer.md",
+    "./agents/factory-orchestrator.md",
+    "./agents/frontend-engineer.md",
+    "./agents/implementation-planner.md",
+    "./agents/performance-auditor.md",
+    "./agents/product-analyst.md",
+    "./agents/qa-engineer.md",
+    "./agents/release-engineer.md",
     "./agents/security-auditor.md",
-    "./agents/test-engineer.md",
-    "./agents/performance-auditor.md"
+    "./agents/software-architect.md",
+    "./agents/test-engineer.md"
   ]
 }

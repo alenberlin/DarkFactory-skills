@@ -1,5 +1,5 @@
 ---
-description: Five-axis review of the current change in a fresh context — report findings by severity, don't auto-fix.
+description: "Five-axis review of the current change in a fresh context — report findings by severity, don't auto-fix."
 ---
 
 Invoke the `code-reviewer` persona to review the current change (staged changes or recent commits).

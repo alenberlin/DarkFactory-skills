@@ -1,0 +1,4 @@
+
+> darkfactory-dashboard-checks@0.3.0 lint
+> eslint src/darkfactory/web/app.js
+

@@ -1,7 +1,14 @@
 ---
 name: security-and-hardening
-description: Hardens code against common vulnerabilities — injection, broken auth, secret exposure, unsafe deserialization, SSRF. Use when handling user input, authentication, sessions, data storage, or any integration with untrusted/third-party systems.
+description: "Hardens code against common vulnerabilities — injection, broken auth, secret exposure, unsafe deserialization, SSRF. Use when handling user input, authentication, sessions, data storage, or any integration with untrusted/third-party systems."
 ---
+
+## Autopilot handoff
+
+Review application security and factory execution security separately. Application checks cover input validation, sessions, object ownership and secret handling. Factory checks cover isolated effects, credential separation, protected approvals/policies/audit, forged evidence, path escapes and stale workers. Report the boundaries actually exercised.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Security and Hardening
 

@@ -1,0 +1,12 @@
+
+> darkfactory-dashboard-checks@0.3.0 test:browser
+> playwright test
+
+
+Running 1 test using 1 worker
+
+  ✓  1 tests/browser/dashboard.spec.mjs:9:1 › keyboard, actual workflow, correction history, mobile layout and accessibility (7.2s)
+
+  1 passed (8.4s)
+(node:23181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

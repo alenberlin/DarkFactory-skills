@@ -11,3 +11,9 @@ Before engaging, check the current project for a file named `.darkfactory`:
 - **missing** → ask once: *"Engage the Dark Factory workflow for this project? (engage / ignore)"*, then write the answer to `.darkfactory` in the project root so you don't ask again.
 
 Do not load the orchestrator unless engaged. Full setup and behavior: [`docs/WORKFLOW.md`](docs/WORKFLOW.md).
+
+Autopilot runtime authority and operator commands: [`docs/RUNTIME_CONTRACT.md`](docs/RUNTIME_CONTRACT.md)
+and [`docs/AUTOPILOT.md`](docs/AUTOPILOT.md). Blueprint approval, explicit execution
+permissions, final human acceptance and release are separate decisions. Markdown
+projections and skill loading cannot grant runtime authority. This entry file
+does not install a background service or alter global agent configuration.

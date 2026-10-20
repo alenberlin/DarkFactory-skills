@@ -7,3 +7,7 @@ Alen Mikic (https://alen-ai.com).
 Licensed under the Apache License, Version 2.0. The attribution notices
 in this file must be preserved in redistributions per Section 4(d) of the
 License (see the LICENSE file).
+
+Local modifications, October 2026: expanded the engineering skill pack into
+DarkFactory Autopilot with role contracts, workflow/acceptance documentation,
+and an executable local runtime and policy engine. Original attribution retained.

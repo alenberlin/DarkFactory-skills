@@ -1,0 +1,4 @@
+
+> darkfactory-dashboard-checks@0.3.0 typecheck
+> tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM,DOM.Iterable src/darkfactory/web/app.js
+

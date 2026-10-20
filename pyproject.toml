@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "darkfactory-autopilot"
+version = "0.3.0"
+description = "Local autonomous engineering runtime and versioned policy gates for DarkFactory."
+requires-python = ">=3.12"
+license = "Apache-2.0"
+readme = "README.md"
+authors = [{name = "Alen Mikic"}]
+dependencies = [
+  "fastapi>=0.115,<1",
+  "pydantic>=2.10,<3",
+  "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "pyyaml>=6,<7",
+]
+
+[project.scripts]
+factory = "darkfactory.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.11,<1",
+  "mypy>=1.15,<2",
+  "types-PyYAML>=6,<7",
+  "build>=1,<2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/darkfactory"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"skills" = "darkfactory/pack/skills"
+"agents" = "darkfactory/pack/agents"
+"references" = "darkfactory/pack/references"
+"docs" = "darkfactory/pack/docs"
+"examples" = "darkfactory/pack/examples"
+"containers" = "darkfactory/pack/containers"
+"schemas" = "darkfactory/pack/schemas"
+"commands" = "darkfactory/pack/commands"
+"hooks" = "darkfactory/pack/hooks"
+".claude-plugin" = "darkfactory/pack/.claude-plugin"
+"README.md" = "darkfactory/pack/README.md"
+"ORCHESTRATOR.md" = "darkfactory/pack/ORCHESTRATOR.md"
+"AGENTS.md" = "darkfactory/pack/AGENTS.md"
+"CLAUDE.md" = "darkfactory/pack/CLAUDE.md"
+"LICENSE" = "darkfactory/pack/LICENSE"
+"NOTICE" = "darkfactory/pack/NOTICE"
+"CONTRIBUTING.md" = "darkfactory/pack/CONTRIBUTING.md"
+"CODE_OF_CONDUCT.md" = "darkfactory/pack/CODE_OF_CONDUCT.md"
+"CHANGELOG.md" = "darkfactory/pack/CHANGELOG.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["docker: executes real Docker isolation boundaries", "live: requires operator-authorized provider access"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S603", "S607", "S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/darkfactory"]
+

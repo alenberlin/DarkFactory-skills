@@ -1,7 +1,14 @@
 ---
 name: debugging-and-recovery
-description: Diagnoses what kind of failure you're facing before responding, then fixes by root cause. Use when tests fail, builds break, behavior is wrong, or repeated fix attempts are making things worse. Use when you need a systematic path instead of guessing.
+description: "Diagnoses what kind of failure you're facing before responding, then fixes by root cause. Use when tests fail, builds break, behavior is wrong, or repeated fix attempts are making things worse. Use when you need a systematic path instead of guessing."
 ---
+
+## Autopilot handoff
+
+In runtime mode, preserve the candidate checkpoint, check failures, prior findings and attempted strategies. Return a diagnosis to the scheduler; it creates a fresh bounded attempt and rehydrates context. Exhausted recovery blocks that task while eligible independent tasks continue. Do not ask the human to restart an ordinary failed agent session.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Debugging and Recovery
 
@@ -47,7 +54,7 @@ State the mode and why before proceeding: *"This is Mode 2 — three fix attempt
 
 The honest move is a clean start, not another patch. This is not failure — it's the correct response to a polluted context.
 
-Before ending the session, extract what's worth keeping:
+Before replacing a failed session, preserve its diagnosis:
 ```
 ## Reset Note — [Feature]
 - What we were building: …
@@ -55,7 +62,7 @@ Before ending the session, extract what's worth keeping:
 - What to avoid next time: [specific approaches that didn't work]
 - Starting point: [what to keep, what to discard]
 ```
-Then: save the note via `memory-and-context`, end this session, start fresh, restore, and re-approach with the note as context. Do not keep patching here. (In an unattended orchestrator run, where ending the session isn't an option, hand the milestone back as failed past budget with the reset note attached — see the pack's `ORCHESTRATOR.md`.)
+Save the diagnosis via `memory-and-context`. In runtime mode, return the checkpoint and diagnosis; the scheduler starts a fresh bounded attempt. In interactive mode, suggest a fresh context when needed. Preserve working source and failed evidence; do not silently restart the project.
 
 ## Step 3C — Rethink (Mode 3)
 

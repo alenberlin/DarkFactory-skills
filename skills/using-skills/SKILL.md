@@ -1,7 +1,14 @@
 ---
 name: using-skills
-description: Discovers and applies the right Dark Factory skill for the task, and defines the operating behaviors every skill inherits. Use at the start of any session. Use when you are unsure which skill applies, or when output quality starts to drift.
+description: "Discovers and applies the right Dark Factory skill for the task, and defines the operating behaviors every skill inherits. Use at the start of any session. Use when you are unsure which skill applies, or when output quality starts to drift."
 ---
+
+## Autopilot handoff
+
+For an engaged project, route discovery to product-discovery, architecture to architect, planning to implementation-planning, runtime operations to factory-control, and delivery to acceptance-validation. Individual engineering skills remain usable when explicitly requested. A session hook does not start the worker or grant execution authority.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Using Dark Factory Skills
 

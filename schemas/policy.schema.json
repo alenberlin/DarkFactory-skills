@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "Role": {
+      "description": "Roles the trusted scheduler can assign to bounded agent attempts.",
+      "enum": [
+        "factory-orchestrator",
+        "product-analyst",
+        "software-architect",
+        "implementation-planner",
+        "backend-engineer",
+        "frontend-engineer",
+        "test-engineer",
+        "security-auditor",
+        "code-reviewer",
+        "performance-auditor",
+        "qa-engineer",
+        "release-engineer",
+        "documentation-engineer",
+        "acceptance-auditor"
+      ],
+      "title": "Role",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A schema-versioned policy activated only through trusted administration.",
+  "properties": {
+    "schema_version": {
+      "default": 1,
+      "maximum": 1,
+      "minimum": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "default": "DF-BASELINE",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "version": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "required_check_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Check Kinds",
+      "type": "array"
+    },
+    "required_review_roles": {
+      "items": {
+        "$ref": "#/$defs/Role"
+      },
+      "title": "Required Review Roles",
+      "type": "array"
+    },
+    "protect_test_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Protect Test Paths",
+      "type": "array"
+    },
+    "allowed_images": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Images",
+      "type": "array"
+    }
+  },
+  "title": "Policy",
+  "type": "object"
+}

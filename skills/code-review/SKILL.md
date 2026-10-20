@@ -1,7 +1,14 @@
 ---
 name: code-review
-description: Reviews a change across five axes — correctness, readability, architecture, security, performance — and reports findings by severity without auto-fixing. Use before merging any change, whether written by you, another agent, or a human.
+description: "Reviews a change across five axes — correctness, readability, architecture, security, performance — and reports findings by severity without auto-fixing. Use before merging any change, whether written by you, another agent, or a human."
 ---
+
+## Autopilot handoff
+
+Review in a distinct read-only session assigned by the scheduler. Return examined/unexamined scope, criterion-linked findings and explicit resolved finding IDs. Blocking findings remain until trusted re-verification and renewed independent review, or a separately authorized exception. The implementation attempt cannot review itself or erase another role’s findings.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Code Review
 
