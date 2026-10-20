@@ -1,26 +1,29 @@
-# Personas
+# Factory roles
 
-Fresh-context sub-agents, each providing one perspective on one artifact. They let a review run in a clean context window, separate from the session that produced the code.
+Roles are task-specific responsibilities. The trusted scheduler creates bounded
+sessions with exact blueprint/task/source context. Role files are prompts, not
+permission grants. Review sessions are distinct from implementation sessions and
+receive read-only source. Roles never assign themselves peers.
 
-## The governing rule
+| Role | Responsibility |
+| --- | --- |
+| factory-orchestrator | Dependencies, ownership, recovery, capacity and real state |
+| product-analyst | Adaptive discovery and observable requirements |
+| software-architect | Architecture, data/API/design decisions and threat model |
+| implementation-planner | Requirement-linked executable DAG and ownership |
+| backend-engineer | Backend behavior, persistence and application security |
+| frontend-engineer | Accessible product journeys and consistent components |
+| test-engineer | Meaningful coverage and protected acceptance checks |
+| security-auditor | Application/factory threats and demonstrated controls |
+| code-reviewer | Correctness, readability, architecture, security, performance |
+| performance-auditor | Measured targets and regression guards |
+| qa-engineer | Real end-to-end journeys and negative cases |
+| release-engineer | Reproducible builds, integration proposals and rollback |
+| documentation-engineer | Tested setup and complete truthful delivery |
+| acceptance-auditor | Current requirement-evidence coverage and readiness |
 
-**The user, or a slash command, is the orchestrator. Personas never invoke other personas.**
-
-A persona that delegates to another creates hidden call chains that are hard to follow. If `code-reviewer` thinks a security deep-dive is warranted, it *says so in its report* — it does not spawn `security-auditor`. Orchestration belongs to slash commands.
-
-## Patterns
-
-- **Direct** — one persona, one perspective. `"Review this PR"` → `code-reviewer`. The default.
-- **Single-persona command** — a slash command wraps one persona with the right skills (`/review` → `code-reviewer`). A saved, repeatable prompt.
-- **Parallel fan-out + merge** — independent perspectives run concurrently, then the main agent merges. `/ship` fans out to `code-reviewer` + `security-auditor` + `test-engineer` (+ `performance-auditor` for user-facing changes) and synthesizes a go/no-go with a rollback note.
-
-Use fan-out only when the perspectives are genuinely independent and each benefits from its own context window. Otherwise prefer direct invocation.
-
-## The personas
-
-| Persona | Perspective | Backing skill |
-|---|---|---|
-| `code-reviewer` | Five-axis quality before merge | `code-review` |
-| `security-auditor` | Adversarial security audit | `security-and-hardening` |
-| `test-engineer` | Coverage and reproduction tests | `test-driven-development` |
-| `performance-auditor` | Bottlenecks and Core Web Vitals | `performance-optimization` |
+The four existing review personas remain available for interactive /review
+and /ship. In Autopilot they return structured examined/unexamined scope,
+criterion-linked findings and explicitly reverified resolved finding IDs.
+Blocking judgments persist until trusted verification and renewed independent
+review. No reviewer can accept the product for the human or approve a release.

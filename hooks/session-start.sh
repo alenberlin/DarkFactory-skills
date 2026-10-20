@@ -1,17 +1,18 @@
 #!/bin/bash
-# Dark Factory session-start hook.
-# Prints the using-skills meta-skill (discovery flowchart + operating behaviors)
-# to stdout. Claude Code adds a SessionStart hook's plain stdout to context, so
-# routing and the non-negotiable behaviors are live in every session — including
-# after resume, /clear, and compaction.
-
+# The hook routes opted-in sessions; durable execution belongs to the worker.
+set -eu
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-META_SKILL="$(dirname "$SCRIPT_DIR")/skills/using-skills/SKILL.md"
-
-if [ -f "$META_SKILL" ]; then
-  echo "Dark Factory loaded. Route the task with the discovery flowchart and apply the core operating behaviors at all times."
-  echo
-  cat "$META_SKILL"
+MARKER="${PWD}/.darkfactory"
+if [ -f "$MARKER" ]; then
+  CHOICE="$(tr -d '[:space:]' < "$MARKER")"
+  case "$CHOICE" in
+    ignore) exit 0 ;;
+    engage)
+      printf '%s\n' 'DarkFactory routing engaged. Runtime approval and final human acceptance remain separate.'
+      cat "$(dirname "$SCRIPT_DIR")/skills/using-skills/SKILL.md"
+      ;;
+    *) printf '%s\n' 'DarkFactory marker is invalid; clarify engage / ignore before activating.' ;;
+  esac
 else
-  echo "Dark Factory: using-skills meta-skill not found at $META_SKILL. Skills remain available individually."
+  printf '%s\n' 'DarkFactory is available. Ask once whether to engage / ignore before loading its workflow.'
 fi

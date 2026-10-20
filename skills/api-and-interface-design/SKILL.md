@@ -1,7 +1,14 @@
 ---
 name: api-and-interface-design
-description: Designs stable, hard-to-misuse interfaces — REST/GraphQL endpoints, module boundaries, and type contracts. Use when creating any public interface, defining contracts between modules, or establishing the boundary between frontend and backend.
+description: "Designs stable, hard-to-misuse interfaces — REST/GraphQL endpoints, module boundaries, and type contracts. Use when creating any public interface, defining contracts between modules, or establishing the boundary between frontend and backend."
 ---
+
+## Autopilot handoff
+
+Treat task proposals, policy definitions, evidence records and approvals as different contracts. Reject undeclared fields. Version schema changes; regenerate schema/SDK artifacts from actual source when applicable. A caller-supplied human identity or success flag has no authority.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # API and Interface Design
 

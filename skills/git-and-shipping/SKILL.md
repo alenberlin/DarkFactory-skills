@@ -1,7 +1,14 @@
 ---
 name: git-and-shipping
-description: Structures commits and releases — atomic history, then a safe path to production with a pre-launch check and rollback plan. Use when committing, branching, or preparing to deploy. Use when you need quality gates and a way back if a release goes wrong.
+description: "Structures commits and releases — atomic history, then a safe path to production with a pre-launch check and rollback plan. Use when committing, branching, or preparing to deploy. Use when you need quality gates and a way back if a release goes wrong."
 ---
+
+## Autopilot handoff
+
+Only the controller updates managed integration references. Blueprint approval authorizes local commits and integration only when those permissions are explicit in the approved record. Human acceptance and release are separate. Push, deployment, production migrations, destructive operations and external communication require specific authorization.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Git and Shipping
 

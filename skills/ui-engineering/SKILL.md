@@ -1,7 +1,14 @@
 ---
 name: ui-engineering
-description: Builds production-quality, accessible UI and keeps it visually consistent via a component registry. Use when creating or modifying user-facing components, layouts, or state. Use when the output needs to look intentional and cohesive rather than AI-generated.
+description: "Builds production-quality, accessible UI and keeps it visually consistent via a component registry. Use when creating or modifying user-facing components, layouts, or state. Use when the output needs to look intentional and cohesive rather than AI-generated."
 ---
+
+## Autopilot handoff
+
+Use the approved design baseline, tokens and component registry within the task’s scope. Reuse the existing UI conventions and verify responsive behavior, keyboard access, focus, labels, errors and empty/loading states. Resolve ordinary design choices autonomously; material changes to approved requirements return for clarification.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # UI Engineering
 

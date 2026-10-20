@@ -1,7 +1,14 @@
 ---
 name: performance-optimization
-description: Improves performance by measuring first and optimizing only what the data implicates. Use when performance requirements exist, when you suspect a regression, or when load times or Core Web Vitals need to improve. Use when profiling reveals a real bottleneck.
+description: "Improves performance by measuring first and optimizing only what the data implicates. Use when performance requirements exist, when you suspect a regression, or when load times or Core Web Vitals need to improve. Use when profiling reveals a real bottleneck."
 ---
+
+## Autopilot handoff
+
+Use approved observable targets and measured workloads. Record environment, source, input size, percentile/resource observations and regression checks. No fabricated benchmark or unmeasured improvement claim may enter the gate. Keep engineering effort and human duration estimates out of technical decisions.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Performance Optimization
 

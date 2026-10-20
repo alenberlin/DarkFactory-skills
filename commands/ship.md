@@ -1,5 +1,5 @@
 ---
-description: Pre-ship gate — fan out to reviewer, security, and test personas in parallel, merge into a go/no-go with a rollback plan, then ship safely.
+description: "Pre-ship gate — fan out to reviewer, security, and test personas in parallel, merge into a go/no-go with a rollback plan, then ship safely."
 ---
 
 Run the pre-ship gate for the current change.

@@ -1,7 +1,14 @@
 ---
 name: test-driven-development
-description: Drives implementation with tests — a failing test before the code, a reproduction test before a bug fix. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need proof that code works rather than a feeling that it does.
+description: "Drives implementation with tests — a failing test before the code, a reproduction test before a bug fix. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need proof that code works rather than a feeling that it does."
 ---
+
+## Autopilot handoff
+
+Preserve failing and passing observations for the exact source revision. Existing protected tests and runner definitions cannot be weakened, deleted, skipped or replaced. Propose new tests for independent review. Critical external behavior uses a separate protected black-box driver; importing untrusted code in a unit runner has weaker guarantees.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Test-Driven Development
 

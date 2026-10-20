@@ -1,7 +1,14 @@
 ---
 name: memory-and-context
-description: Preserves and restores working context across sessions, and records decisions that future work depends on. Use at the end of a session to save state, at the start to restore it, and whenever an architectural decision should outlive the conversation. Never persists secrets.
+description: "Preserves and restores working context across sessions, and records decisions that future work depends on. Use at the end of a session to save state, at the start to restore it, and whenever an architectural decision should outlive the conversation. Never persists secrets."
 ---
+
+## Autopilot handoff
+
+In runtime mode, SQLite records, immutable snapshots and protected evidence are authoritative. Markdown and .memory are optional redacted projections. Rehydrate the exact approved blueprint, task, attempt history, dependencies, findings and limits. Existing approval survives restart; a projection cannot override state or manufacture approval.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Memory and Context
 
@@ -35,7 +42,7 @@ Don't capture what the code/git already shows, or how something was built (only 
 
 ## Restore — at the start of a session
 
-Read the latest `.memory/` file and `INDEX.md`, plus existing project context files (`CLAUDE.md`, `.cursor/rules/`, `AGENTS.md`, etc.) — only those, don't crawl the repo. Then summarize what was restored and **confirm before continuing**:
+Read the latest `.memory/` file and `INDEX.md`, plus existing project context files (`CLAUDE.md`, `.cursor/rules/`, `AGENTS.md`, etc.) — only those, don't crawl the repo. Then summarize what was restored. Continue under existing authorization; clarify only a material mismatch:
 ```
 Restored. Last session: [built]. State: [works now].
 Decisions locked: [...]. Next up: [...]. Correct? (yes / fix anything off)
@@ -61,7 +68,7 @@ Right context, right time. Load what the current task needs; don't drag stale, i
 
 - A single `memory.md` overwritten each session (history lost)
 - Any secret or credential-like value written to memory
-- Restoring and charging ahead without confirming the summary
+- Treating stale memory as authority over current approved runtime state
 - Decisions made in chat and never recorded — re-litigated next month
 - Loading the whole repo "for context" and drowning the actual task
 
@@ -69,6 +76,6 @@ Right context, right time. Load what the current task needs; don't drag stale, i
 
 - [ ] Memory saved as a per-session file, not an overwrite
 - [ ] A secret-scrub pass ran before writing; nothing sensitive persisted
-- [ ] Restore was confirmed with the developer before work continued (in an unattended run: stated, with the approved blueprint standing in)
+- [ ] Restore matched authoritative state; existing approval was preserved and material mismatches were clarified
 - [ ] Durable decisions captured as ADRs, not left in the transcript
 - [ ] Only relevant context was loaded for the task

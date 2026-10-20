@@ -1,5 +1,5 @@
 ---
-description: Think through a feature before building — align on language, settle the decisions that matter, produce a short spec and ordered plan you confirm.
+description: "Think through a feature before building — align on language, settle the decisions that matter, produce a short spec and ordered plan you confirm."
 ---
 
 Apply the `architect` skill to the following request.

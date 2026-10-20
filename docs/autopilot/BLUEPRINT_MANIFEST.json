@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "blueprint_version": 1,
+  "status": "proposed",
+  "approval": null,
+  "documents": [
+    {
+      "path": "docs/autopilot/BLUEPRINT.md",
+      "sha256": "a7f140783046a32aadee1bb7e366d970879ef510bd2da19c9cf09b5c051fa554"
+    },
+    {
+      "path": "docs/autopilot/REPOSITORY_ANALYSIS.md",
+      "sha256": "388af5795ecb3bf739f675b3a450956c82ebfefe6b3db4e6ce36b3c8404ea64e"
+    },
+    {
+      "path": "docs/autopilot/PRD.md",
+      "sha256": "9986949686a83a95043fa47a15dc8de0a87ee553c44b8f725c47bdc4d834573d"
+    },
+    {
+      "path": "docs/autopilot/ARCHITECTURE.md",
+      "sha256": "1dc18ab4e1be78dd34eccfd74c86a552146e6b73031153fd3cff6dd2798ef816"
+    },
+    {
+      "path": "docs/autopilot/IMPLEMENTATION_PLAN.md",
+      "sha256": "301a960600e561e5a2d6f29f69dd6c02771a2f6b4088a3b06b763c69187ee4c4"
+    },
+    {
+      "path": "docs/autopilot/VERIFICATION_PLAN.md",
+      "sha256": "8602dfbcbbb773c5885e6bd5998d77a30f760a9d08d163f3219e0dda3f07d998"
+    }
+  ],
+  "blueprint_sha256": "7b2db21dbf8b6dd49fd0c2e9180006c3e919f6c743e84085dd82bebe11116407"
+}

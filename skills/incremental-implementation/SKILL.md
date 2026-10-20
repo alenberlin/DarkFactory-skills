@@ -1,7 +1,14 @@
 ---
 name: incremental-implementation
-description: Delivers changes in thin, verifiable vertical slices instead of one large drop. Use when implementing any feature or change that touches more than one file. Use when a task feels too big to land in a single step, or when you're tempted to write a lot of code at once.
+description: "Delivers changes in thin, verifiable vertical slices instead of one large drop. Use when implementing any feature or change that touches more than one file. Use when a task feels too big to land in a single step, or when you're tempted to write a lot of code at once."
 ---
+
+## Autopilot handoff
+
+Implement only the assigned requirement-linked task in its isolated workspace. Respect permitted paths and dependencies. Return candidate edits and bounded argv commands through AgentReply. The controller verifies, assigns independent reviews, and integrates the actual merge; a complete model reply is only a proposal.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Incremental Implementation
 
@@ -29,7 +36,7 @@ Build the riskiest, most foundational slice first. If the core assumption is wro
 For each slice:
 - Implement the minimum for that capability
 - Verify it (test pass, build clean, runtime check) — see `test-driven-development`
-- Commit it as its own atomic change — see `git-and-shipping`
+- Submit it for trusted integration; commit only under explicit permission — see `git-and-shipping`
 - Only then start the next slice
 
 ### 4. Keep scope surgical
@@ -49,7 +56,7 @@ If a slice won't go green, stop — don't pile the next slice on top of a broken
 ## Verification
 
 - [ ] Each slice was independently verified before the next began
-- [ ] Each slice is its own atomic commit
+- [ ] Each slice has verified source evidence; any commit was explicitly authorized
 - [ ] No slice left the build or test suite broken
 - [ ] Only files relevant to the task were touched
 - [ ] The first slice exercised the riskiest part of the design

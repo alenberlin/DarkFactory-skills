@@ -1,0 +1,385 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-10-19T22:39:44.492851+00:00",
+  "source": {
+    "sha256": "651fdb1cdc2344a811c7b69c54f511f86cbdcd60bfbe913f7eb26fead9191296",
+    "files": {
+      ".claude-plugin/marketplace.json": "acfd2cffec5ee46b033ec7e3d16e7fd42763c728b6a4e736a259f91dcf81cc61",
+      ".claude-plugin/plugin.json": "05635c70cf7cce1382218d847c41e457e4fb9ff9a317480dc6f641594d879a1e",
+      "AGENTS.md": "e84478351528c3c7c6850b7b2a63b6605ee397c0b257e10d4d9d9373fc99ae11",
+      "CLAUDE.md": "d5a48de707ed6f586456a6a9dcd0a0bd6e7ec1fd84acb14b0b7ddda35751cdf4",
+      "LICENSE": "9e42ad0fce182f92d6a128097f4e7de22fd7945de2b57863b0a8e43eea6c24b0",
+      "NOTICE": "1a75a3f8f3cb1b406629ad8129c06ee94e31dc421d5fc09d2f4f96ed73fb026d",
+      "ORCHESTRATOR.md": "ea4f716265dc9dc24769f897a1a11a565bc1c7be078f9d851201b3e44cc80f4d",
+      "README.md": "7f2b1ec2dd1302c1f96ad62a5d23312861587eb61b72c80a0b3d174616ec33d8",
+      "agents/acceptance-auditor.md": "a16489d862d382b10219f1e9b2ee3e1d263cb6b11591cf5b82d4803e5186fc69",
+      "agents/backend-engineer.md": "741930e079b8fe4ec390fa44e371d4d20c9344a14a06bdcbb36e528a383920a0",
+      "agents/code-reviewer.md": "0c6202bdb57cc6d2256a4771e4c59a438115b630d966b431525ddfa68cf2ded6",
+      "agents/documentation-engineer.md": "6e18f89b1ea917af7ace95810e8bd44892cbd6219aef3d80b6d1c30b5b7a6a14",
+      "agents/factory-orchestrator.md": "5e572842a0b45c33897372ddd0435bf21a5cf0e2a2802c77f14afc21b9e2afa3",
+      "agents/frontend-engineer.md": "d765839d2b2fdeb3db488bca326667c8abaf79540dc1442bc39768bdbb1688b7",
+      "agents/implementation-planner.md": "0ab51b2e5232d57f8949601a9aabf655268b360279f11479a95d1e2ff51420ad",
+      "agents/performance-auditor.md": "40cfb3a49c7f24d822b30e436dabb36b9bab270851b1a900b44a8a2a88891b86",
+      "agents/product-analyst.md": "7adf9bdc91aa361309a572def597ddd48ddc8752ef3897c273c0078e15e70d5a",
+      "agents/qa-engineer.md": "d39f4c305d9d53996bfe448680755fb11f43299d0ab410279a78e14f7df14c7f",
+      "agents/release-engineer.md": "f58df9075467dc9f4eb3f671cbfd9da0a53ff59be8936381e3221b43ac3168ee",
+      "agents/security-auditor.md": "b917cc5e97274cb50f09d873cbc70f6c9e3a34a73d8b715e954371a6080f3599",
+      "agents/software-architect.md": "e4f2153b1f867a71c5a5f87e1dff55afcba317c4033f8882175da2a4df5d8ca0",
+      "agents/test-engineer.md": "a01156fb74bf730307774b5ece10e892f62dd531b4fb5f38ac93c675538a3581",
+      "commands/architect.md": "b348eb79409088acd8ca99b0455c430e22f5031c4eb2cfa933b1322c3378364c",
+      "commands/build.md": "d838a9096a0ccfa42af2002385c4784d834995205cfd35110d9d5986e1b889d1",
+      "commands/darkfactory.md": "614a2c0be13eae1761705d101368fdeaae53cfa43039d75d74497b8193ab172c",
+      "commands/factory.md": "fa76930a88afa302b8bb359f239891662e8e255111e569375c023a618b5d2ccc",
+      "commands/review.md": "0afe1faf4403fe384e2b2cdac6a1a3d4eda225bf1774e8e3f0fe2f1bbd52fbf6",
+      "commands/ship.md": "a11cfa5abc1377df17e4b05ac7fd47c48cb9647778b1044e77a4d3750c1c4f50",
+      "commands/test.md": "f441418005ef98c855ec09ee7aedd12c96bd597560d642f0ed869bdb675d3f1e",
+      "containers/agents/.dockerignore": "b0964346914cfc8035a831053273daef6bf4c0bb30102aea29f3da8d2ae702b1",
+      "containers/agents/Dockerfile": "5532270c34c6ed4ae531480154431c2732ceff4a1cd37bea7a1668ec8ac26ad7",
+      "containers/agents/package-lock.json": "85a3727035bb2f9ccb30b1b5d0bdd2b2493efff1c6d8f15c1de09af764a2abdf",
+      "containers/agents/package.json": "7ce7f4ff8061c9e562702163498718620ad5c727c4bbb99f61d3f78207e527f7",
+      "containers/mixed/Dockerfile": "0fd9c23f0346101484a01d6a71ceb48f6d490f67ac94f3eee430d4ad3cca46ba",
+      "containers/python/.dockerignore": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+      "containers/python/Dockerfile": "4db5e9037193582c5f060c7d97c1867c6d725c919638d55577ce111e1837912f",
+      "containers/python/requirements.in": "817918de39acd4b0b82e0850151cb9cbbcfef10453479eba6eafc75d84b7f902",
+      "containers/python/requirements.txt": "77ffa8e020f002962a15b200f1ae482a15c899c482266127dcb4820cb85c6dc2",
+      "containers/rust/.dockerignore": "08bb7a70af4ae5a9c15226f499f2e76055ebd521550f87eb102a1316cdb9df38",
+      "containers/rust/Dockerfile": "3eba18cdd4645a5845160927fc85578f87651bf98b7af1076772577eff86895e",
+      "docs/AUTOPILOT.md": "e27a3d63bd59b7d20299584faf79fdf10ce2eca8416e7cd58f93b9baa1e8dccb",
+      "docs/GETTING_STARTED.md": "eb476ae253bb9396e0af71320f7a7306cde51ae001365d9ef7f0c0b03f3b1877",
+      "docs/PERSONAS.md": "4f41a77a9eaab35137b9649511c868405a9d0c3880012c0985d6c156a0f6e3a8",
+      "docs/RUNTIME_CONTRACT.md": "8792abbb568d8b7306f93ebc1f31c962d87fd744b6d6348e97f9416325fe00da",
+      "docs/USER_GUIDE.md": "09de3d2b4eda696a3c415b8c643ba1aac9d677f5a00083c533ef5863cbd2b802",
+      "docs/WORKFLOW.md": "07485126cc61e151436e5f485a5d59bd895f8b30a7c1e1496eba60760afb20e6",
+      "docs/autopilot/ARCHITECTURE.md": "1dc18ab4e1be78dd34eccfd74c86a552146e6b73031153fd3cff6dd2798ef816",
+      "docs/autopilot/BLUEPRINT.md": "a7f140783046a32aadee1bb7e366d970879ef510bd2da19c9cf09b5c051fa554",
+      "docs/autopilot/COMPLETION_PLAN.md": "fc3e690530532a16219196537d428d75142cf86342369d75736f8cb069334d23",
+      "docs/autopilot/EVIDENCE.md": "f701ae9f45492435faa9f85d0fab39ae5c5b6c7200ba5cafb5cb752aa0488f0d",
+      "docs/autopilot/IMPLEMENTATION_PLAN.md": "301a960600e561e5a2d6f29f69dd6c02771a2f6b4088a3b06b763c69187ee4c4",
+      "docs/autopilot/PRD.md": "9986949686a83a95043fa47a15dc8de0a87ee553c44b8f725c47bdc4d834573d",
+      "docs/autopilot/PROGRESS.md": "2b8af2eb6b066265a4b752b205da80f99c859b1dd04c711a0736358cabad369d",
+      "docs/autopilot/REPOSITORY_ANALYSIS.md": "388af5795ecb3bf739f675b3a450956c82ebfefe6b3db4e6ce36b3c8404ea64e",
+      "docs/autopilot/TAM.md": "e1437bc87c9a1d171ff1fa8e638aac224809f04371c3c91dd614a2918ea72ef2",
+      "docs/autopilot/VERIFICATION_PLAN.md": "8602dfbcbbb773c5885e6bd5998d77a30f760a9d08d163f3219e0dda3f07d998",
+      "docs/skill-anatomy.md": "eedf399a123cb55f9a84341125de60e74bdcef312252b16fdbf8f74b5e234dbc",
+      "eslint.config.mjs": "e3a85c91849fa1c513de1d83062659b55972b200898df35b987f3143b5db19c7",
+      "examples/pilot/GOAL.md": "5a2fcde1cdda71fb7d926d7de6c3e9d4691778652e219bd41603e3103ba31256",
+      "examples/supervision/README.md": "71ccd87d8ad1750b1a40820cef57246e1c1eef32b8588dce31dfe2ed1fa1c55d",
+      "examples/supervision/com.darkfactory.worker.plist": "ba9a472bc5bdf8be44c23fd192deadce7a0c211116e2e10260ffdd7f921c12a0",
+      "examples/supervision/darkfactory-worker.service": "bc865d505fa268dbffa5ec3d934347341db44a6da745a1179396f10df45c6ffa",
+      "hooks/hooks.json": "81c37e53652af4c32fd3812fb2f74b999344f233bf567bc625759284f2881b5f",
+      "hooks/session-start.sh": "37a339cc36577e8ca9307e124e18f42e6821bcdf9b70e4a75cd90e1d764d54ba",
+      "package-lock.json": "05785fab6b8017ffd962752acd2d0d23781592262099d27fd137dd66dc49cc20",
+      "package.json": "25d3191fcd3ceb7371846533856d18876f9ce2c3b85d64aeaa4c9e9a1a396783",
+      "playwright.config.mjs": "05f1549d043db5589cf93386da9d450c27a6e92b5f83bcc0364d82dcd48afba3",
+      "pyproject.toml": "4620a04900adfe6c86ac34a18b0c629d85ecbe557f838918ebf3f903af303f9b",
+      "references/accessibility-checklist.md": "6270546fe291ff37bfd7a305f96b06781b27b57349ff05561211ca834dd89585",
+      "references/performance-checklist.md": "8a224ce0ceeb24cccb7fd7c5633ebbabdfd1ee160c8b521452cd02bf983fecd0",
+      "references/security-checklist.md": "c5a234227f9e28991b86548b440c0ed759be10e10c7cb87c2fa35a3dae1fa4b0",
+      "schemas/agent-reply.schema.json": "7aecd34210e8d115b6ad63543902ea0a3ff9aa4da692c53d14acb59c396b2768",
+      "schemas/blueprint.schema.json": "294a3399010bc3205cff2230a7ccc0c7366705b2613b8b9a75083ab2357c9de7",
+      "schemas/openapi.json": "a3b41968da3fedfc7708a311c7a688cdbd1ff65bed494acf059286e043dc9b25",
+      "schemas/policy.schema.json": "e41ce288a49b066b2b9b3caa4d8016fbd75de8df2f5b3f71b8024de1cc62073c",
+      "scripts/export_schemas.py": "da98e7d77fa22fb8bf7a0489942553633f796ece501f2f086949f455aea782f8",
+      "scripts/validate_pack.py": "352f6f6106e65ca1eb1598bdabebae7a52f247d4cecd312382e8abae0142c0c3",
+      "scripts/verify_local.py": "2f87d109f0258422d6482dda4650782f8a4f21ba121273dd302fea50c1a6f7d2",
+      "skills/acceptance-validation/SKILL.md": "8f133542e384739bb669f0d945fb449b17f4db92668d781ede3d4ec8c9bc98ac",
+      "skills/api-and-interface-design/SKILL.md": "4b60843e7bee13b41545aff33baf55cbfd04f44079572b200778015b6fddf65c",
+      "skills/architect/SKILL.md": "5e5134de69cd205604d5ef1b880389ad0e3e138e15e4b5ca2e351b63c53be85c",
+      "skills/code-review/SKILL.md": "62a4b0236bae4c1f265488544b3c8f8789502c62cb78774882cb9bd5e819a158",
+      "skills/code-simplification/SKILL.md": "89044f2b89b5869ec8f50adc3874e7e3cce4a06769c6f9763e9a44326399bf7d",
+      "skills/debugging-and-recovery/SKILL.md": "4a36ff71043d0155017e4433587678d4942f4489f9e4137f314157266bdfadc7",
+      "skills/documentation-delivery/SKILL.md": "b4a6bcb8f52cd74550995645f97cdcf82624e4d687c7152f71fda6ff66f053fb",
+      "skills/durable-execution/SKILL.md": "b1786d82fdf6f5ece4d42b6c7df2596b0775697cfeb9d056db63110e0f6b8235",
+      "skills/factory-control/SKILL.md": "73eb0cca64db774576d99b8c8e55cc972f8e63aba2830e9311d64fcf979352e6",
+      "skills/git-and-shipping/SKILL.md": "87c8f963ac78cd667d9cb1b93dda9c6f0abe3a05fad3050df1eb136ffeb8a545",
+      "skills/implementation-planning/SKILL.md": "7e28bdd6c86b8c49542789f64774c7636b694113556b6fdb88b4c893fe1bc6bc",
+      "skills/incremental-implementation/SKILL.md": "21bbca45541c323db9cf1e798ad0b8db8f941d31c480ba4ae4f3742dde9a4502",
+      "skills/memory-and-context/SKILL.md": "ca42953c7e23511ebe939a38c3bcacf253dc0623d6b50f3dd92dd7953d41185e",
+      "skills/parallel-integration/SKILL.md": "967a74bef842e4dddf49d6368a813f917ed3fb5897e78431b0af9aae4f0bf26c",
+      "skills/performance-optimization/SKILL.md": "461bd55143b72a23d176a4bdfd2146ec90df5e9ba073e1aa61390f26aaa42a4f",
+      "skills/policy-enforcement/SKILL.md": "41a3b78ee406d038fa3c0276a747e674964f17e20f9902c7c1044197c48ac87e",
+      "skills/product-discovery/SKILL.md": "c584d800198b5d09e54929ee0879c9fe905107235c30c843fdfefb26aad5af96",
+      "skills/quality-assurance/SKILL.md": "746a11bca8500ec6ecfae13ffb786d0adb7b43fbafda4e72ac55ef916d955c01",
+      "skills/runtime-verification/SKILL.md": "185d915fe14a657089fdc62444ebd1fc374b1882e08f0b1a96a16c2a701e4f9a",
+      "skills/security-and-hardening/SKILL.md": "a0362eea4aec3384b126bb5e93189d40b2468b04d6d9b1c3d0957c5e8b5b6033",
+      "skills/source-driven-development/SKILL.md": "f74627bc708b4320272285fa38dbd0bc9825a08bfac7a5b9da94940e49c6a5f0",
+      "skills/test-driven-development/SKILL.md": "595193837a7646ecf8d9f07e7bae967f0020a9ec51af58405909961358d545d0",
+      "skills/ui-engineering/SKILL.md": "0cc07cf4f584aff64e0444a29727a94443343afb4e3f1176cec6cf22b1b11256",
+      "skills/using-skills/SKILL.md": "87d89e814242290aef71adf728eccfb23887212550be235a661446e0a85aa2c2",
+      "src/darkfactory/__init__.py": "777487012e02a8a2a9a766ea4815d204f0f71ccd7e5a7a2303025fe047074cd6",
+      "src/darkfactory/adapters.py": "6c824e2f180417cba18ddebdd6365e0cce911c02b7e394afe9bf54f20b44c1c2",
+      "src/darkfactory/api.py": "6974090346110ad33527d3cb520e2548caffd77ab570e564b6659ec1a51d49c1",
+      "src/darkfactory/cli.py": "3e8199afaec1533fd5ab834f4d4879225b2041afda0bd3bbf87bc608afb4081b",
+      "src/darkfactory/context.py": "bc6ea1f0cbad7c829d2d99e11f409a98061e8e9d619024f3fc87529b2c979112",
+      "src/darkfactory/discovery.py": "da83c8b740482bdd3901d3d8d76e2dfd050af23b8a34eb00a07fa25c812082e2",
+      "src/darkfactory/domain.py": "8c25ba3ed204f036ea702cd887246151d85a1104a3152f767bb6598233a0ba19",
+      "src/darkfactory/engine.py": "1d88294b36b03ea5433446a51f28aabc71e4707e1e1125db82c0c73be41205b3",
+      "src/darkfactory/execution.py": "b635cb6650e6aaeedd6c5707f9d14e9eb0e826af684a0a8589bcb37d5b0391b4",
+      "src/darkfactory/gateway_server.py": "6027beb3efc345074c1e4dee6e5610d9b16c9d183842f46b0e93a7f694ebd9eb",
+      "src/darkfactory/gitops.py": "9a7f5de09f8ddecddf24f8878a6690ff745b2539dce205ecb82b52b9cb085834",
+      "src/darkfactory/pack.py": "e7f6bdac222bdd4c7a1b79d7d4f2823b9e7c77f3a9ec5e116edbac6f04773c56",
+      "src/darkfactory/policy.py": "8e38f4940aa6587e896e72ea661082722e93ccc569dead83a1b26d6d31df1a33",
+      "src/darkfactory/profiles.py": "d097da8e68b57f019f6e14f952609cb972c171e93456b57c2c8478a29925e6df",
+      "src/darkfactory/resources.py": "3e23c90de16cf0c6cdafda833bedac844b6379c26480f48cb8ab5bca13f45ece",
+      "src/darkfactory/security.py": "a9683a3ff5e5936b89c3c262f3d9e5cca6482c5ab8dc5a46a8af6e27f87791e7",
+      "src/darkfactory/services.py": "f18d9dfbe88874a8f9cc746f9b94ddf212268c14f21ae02b6e25d156300837f2",
+      "src/darkfactory/setup.py": "d65aea07fd3d8282cede772e367e55f653c92ebca0acda3187dee466c698cece",
+      "src/darkfactory/storage.py": "ed4bf58f523120b6192f65da5e50a904ef9761588cf9b87c5080848792d8eaa9",
+      "src/darkfactory/verification.py": "25e745d1cf489eebb3ff647a57b05f3f9edaaad6e84d76be97dd12ae1a857609",
+      "src/darkfactory/volumes.py": "7f39b16b4c4fa8be281be738a16c52f90374c287badfa6f7af9f2f10ac5a6068",
+      "src/darkfactory/web/app.js": "d3f0e53c23e44184ecd7b2702b14cbb3d45b2778f71f55eb689d69bbbe14c1cb",
+      "src/darkfactory/web/index.html": "c1ca2c98b11dc11f692c6800524ef19cd1c55e6c8e3de73e8d175b87a97e8064",
+      "src/darkfactory/web/style.css": "0414bd9bc4a2242c9dc374ee11c49f52f3e41613b6f8a0df0af2b7dd249907b6",
+      "tests/__init__.py": "2d9b82efc32d362178879a0294cbac2ae0e8de42b67b25166b1d523a3c30e143",
+      "tests/adapter_fixture.py": "7b4ee090faeb373d2c5d5038c0489ccd4cb7189b899fd92b05cd2f94c6445188",
+      "tests/browser/dashboard.spec.mjs": "340abba587a41e386a40ee9fd5830cd1ee08423146e9c266a8b6316fa82dbfea",
+      "tests/check_fixture.py": "62578c54aff8bce4bd26e36371734036458f08906198eb1eb4a13f0ee61256d8",
+      "tests/conftest.py": "a0c2e614bd385d250c5cd2a0641a6414e9e46456f1e87cf198aca4e1a4de18a2",
+      "tests/dashboard_fixture.py": "7e15faf03a41df6448f7cfaa0a4a0fb46518022105117bcb847e456714e91462",
+      "tests/provider_fixture.py": "208e998bc5917cbca2695bd4dd6432b2b6eacd9ea497fb6f4808bb2fa2b244c7",
+      "tests/test_adapter_diagnostics.py": "0f5a1fff83fcd09b0b14ddcc24ecaa7d247bdeadef31e05a8f60e7782ba08979",
+      "tests/test_adapter_recovery.py": "6334ba68ade936e63720ba5ab7743a5680949e0369918081e28a9608e65b431f",
+      "tests/test_adapters.py": "d65ea61c632241ccdb006d60bfd61d0d1a9610fecac67046c13bae3837f24c32",
+      "tests/test_additional_guards.py": "c3f962e5815935e4e6942e751d7c1a1d179ea02a40a1d39d964012b2612746b4",
+      "tests/test_api.py": "afd97ab66e3b8b6a738121e472e1d85bc3784df7f9917d9efa7aa6cbcdbe7c51",
+      "tests/test_check_recovery.py": "982c098b370129c31aee913827f34d91e03db99113d5253e9404205f87b44fed",
+      "tests/test_context_rehydration.py": "20d4304e0d0e033f33f1feaa221e3ee2955e58e98d7a105de12011e166402aeb",
+      "tests/test_contracts.py": "2e7ad15cac250cf01c8b0367f3e7bb048ec1edac043e7d618a4971918f34e5f9",
+      "tests/test_corrections_and_exceptions.py": "bd3a34a5c5eb8ab912cc7c48e36811a4e270ea8137de961e8786fc02846d5b13",
+      "tests/test_delivery_guards.py": "bc061c014b4ab256c3ef0ad6fc962ea1cdaf3ecf4e93693b854ee90905e4b48c",
+      "tests/test_discovery.py": "a47e7c6a4c952daf02a08ef221f4ad942334d3d7509b6803bbf6def24fd1b363",
+      "tests/test_engine.py": "56d9a8d88010a11610b233f3fbc8608ac71de7a2cf427076d60f16d0740fa4da",
+      "tests/test_execution.py": "56dd35a73e77b168ba10eccdea2fb9e37131eb88fe3ad35d19705e78d19d12d3",
+      "tests/test_foreground_modes.py": "0c86f4afe2896c5dae7c114d3c773701f86ec595dbca6a15cd94f5444b901a3b",
+      "tests/test_gitops.py": "6ca12b5962de67450bdae4879c3ad7791b03c16a93f2fd60a71703ad459c340c",
+      "tests/test_integrity_matrix.py": "48f9ebe6ed9a9b7724dea73276e489d8a3154fb115738e1d2e952e1d54992d88",
+      "tests/test_native_protocol.py": "e85df28d5cc979e1d879a2c64238fd6d3738d702634c8ef25f4a2f313e9e7a5d",
+      "tests/test_operator_setup.py": "c2b000be86f6ddbb8921f16b1542489ae40083c08f476c2dedae2198e29555e5",
+      "tests/test_parallel_engine.py": "8b349bfd163c0121f2c4388c847b82522f49d8425d31f064c4adb4b33c2f2a73",
+      "tests/test_profiles.py": "b90a7da7a5c586a1eecbaa18f5c64e1f7c2e7c161c8036bde7a34bc66fa333cd",
+      "tests/test_recovery.py": "5d8de312edb66c7ca82b32b9783adf982b73c888c69f3875655d86f968374a67",
+      "tests/test_remediation.py": "19b910a940bf1ef8e222b11043f4a4ef956025627551f5080109d984a99ecdd5",
+      "tests/test_required_test_execution.py": "f63e9f8d7bd3a8ed54404594a1643d8ac401917cfbb1905a0a210dbdd9ed8d59",
+      "tests/test_state_volumes.py": "5cd5cec97420b7bf1b50246a8b1f8ca25fe8cf2efa103ade3622c8f386f01050",
+      "tests/test_store.py": "f072e06bf47e481bbb152740aa4389bebdc36cf3bf8351f6dfaa6ce3cdfdd9b6",
+      "tests/test_verification.py": "697e0fe38a9c2597e534aba9c89efa7038c8c7bc68b7ad2f9269972f4016fe54",
+      "tests/worker_fixture.py": "2a51f685f5b6c961153bc5013452cfe3fb41bdb0a7ac7df9304c423f3b9a8994",
+      "uv.lock": "a53d6c53ccc5fbbfa8fc292c03c48566bf800b2cade0df71cef0cc5bef8cb3bd"
+    },
+    "excluded": "Generated evidence, build outputs and development state"
+  },
+  "checks": [
+    {
+      "name": "ruff",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "run",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/ruff.log"
+    },
+    {
+      "name": "format",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "run",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/format.log"
+    },
+    {
+      "name": "mypy",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "run",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/mypy.log"
+    },
+    {
+      "name": "dashboard-lint",
+      "argv": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/dashboard-lint.log"
+    },
+    {
+      "name": "dashboard-typecheck",
+      "argv": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/dashboard-typecheck.log"
+    },
+    {
+      "name": "dashboard-format",
+      "argv": [
+        "/opt/homebrew/bin/npm",
+        "exec",
+        "--",
+        "prettier",
+        "--check",
+        "src/darkfactory/web"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/dashboard-format.log"
+    },
+    {
+      "name": "pack",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "run",
+        "python",
+        "scripts/validate_pack.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/pack.log"
+    },
+    {
+      "name": "pytest",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "run",
+        "pytest",
+        "-q",
+        "--junitxml=/Users/alen/2026/DarkFactory-skills-main/docs/autopilot/evidence/pytest.xml"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/pytest.log"
+    },
+    {
+      "name": "browser",
+      "argv": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "test:browser"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/browser.log"
+    },
+    {
+      "name": "build",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/build.log"
+    },
+    {
+      "name": "wheel-constraints",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "export",
+        "--quiet",
+        "--no-dev",
+        "--no-emit-project",
+        "--format",
+        "requirements-txt",
+        "--output-file",
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-constraints.txt"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/wheel-constraints.log"
+    },
+    {
+      "name": "wheel-environment",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "venv",
+        "--python",
+        "/Users/alen/2026/DarkFactory-skills-main/.venv/bin/python3",
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-install-d01d983298d64d63901600b74f8f83bc"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/wheel-environment.log"
+    },
+    {
+      "name": "wheel-install",
+      "argv": [
+        "/Users/alen/.local/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-install-d01d983298d64d63901600b74f8f83bc/bin/python",
+        "--constraint",
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-constraints.txt",
+        "/Users/alen/2026/DarkFactory-skills-main/dist/darkfactory_autopilot-0.3.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/wheel-install.log"
+    },
+    {
+      "name": "wheel-resources",
+      "argv": [
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-install-d01d983298d64d63901600b74f8f83bc/bin/python",
+        "-I",
+        "-c",
+        "\nfrom pathlib import Path\nimport json\nimport darkfactory\nfrom darkfactory.domain import Role\nfrom darkfactory.pack import role_context\nfrom darkfactory.api import create_app\nfrom darkfactory.storage import Store\nroot = Path(darkfactory.__file__).parent\nassert \"wheel-install-\" in str(root), root\nfor role in Role:\n    assert \"Shared Autopilot contract\" in role_context(role)\npack = root / \"pack\"\nassert len(list((pack / \"skills\").glob(\"*/SKILL.md\"))) == 24\nassert len(list((pack / \"agents\").glob(\"*.md\"))) == 14\nassert len(list((pack / \"commands\").glob(\"*.md\"))) == 7\nassert (pack / \"LICENSE\").is_file() and (pack / \"NOTICE\").is_file()\nassert (pack / \"examples/supervision/README.md\").is_file()\nassert (root / \"web/app.js\").is_file()\napp = create_app(Store(Path(\"api-smoke-state\")), \"wheel-install-validation-fixture-only\")\nassert \"/v1/projects/{project}/approve\" in app.openapi()[\"paths\"]\nprint(json.dumps({\"roles\": 14, \"skills\": 24, \"commands\": 7, \"resources\": \"present\"}))\n"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/wheel-resources.log"
+    },
+    {
+      "name": "installed-cli",
+      "argv": [
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-install-d01d983298d64d63901600b74f8f83bc/bin/factory",
+        "--state",
+        "/Users/alen/2026/DarkFactory-skills-main/.factory-dev/wheel-install-d01d983298d64d63901600b74f8f83bc/cli-smoke-state",
+        "status"
+      ],
+      "exit_code": 0,
+      "log": "docs/autopilot/evidence/installed-cli.log"
+    }
+  ],
+  "source_unchanged": true,
+  "hook_states": "missing/ignore/engage/invalid passed",
+  "frozen_blueprint": "unchanged",
+  "images": [
+    "[python:3.12-slim] sha256:090ba77e2958f6af52a5341f788b50b032dd4ca28377d2893dcf1ecbdfdfe203",
+    "[rust:1.98.1-slim-bookworm] sha256:ff521445a372125ed4f76e1453a1f8098f2d05332d1601d30db1c1f62757e730",
+    "[darkfactory-native-adapters:0.3.0] sha256:3c1d86807ad93638fc6fafeeb1178db2ea9c972cc379b7992bf69a07159b4c70",
+    "[darkfactory-python-tools:0.3.0] sha256:b5a1bedc60635721ecaa87f0d64f3f54b1bf260d4f2f0e3abd80b0759b48c7b3",
+    "[darkfactory-rust-tools:0.3.0] sha256:5d25cee756ce11c9758db8637f0b663f2aaaa86867266b70876158dc01caf8f1",
+    "[darkfactory-mixed-tools:0.3.0] sha256:fff193eb6a507ab20c76aac5ae75c99977f895c07be7bd20fcd7fc9c4cbd8eff"
+  ],
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.14.6",
+    "sqlite": "3.53.3"
+  },
+  "live_provider": "Not exercised; explicitly pending at operator request",
+  "full_acceptance": "OPEN; real-project/live acceptance remains operator-dependent",
+  "browser": {
+    "startTime": "2026-10-19T22:39:33.559Z",
+    "duration": 8388.344,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "pytest": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 113
+  }
+}

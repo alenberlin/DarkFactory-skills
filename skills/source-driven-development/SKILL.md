@@ -1,7 +1,14 @@
 ---
 name: source-driven-development
-description: Grounds implementation in official, current documentation instead of memory. Use when building with any framework or library where correctness matters, when using an API you're not certain about, or when you want code free of outdated or hallucinated patterns.
+description: "Grounds implementation in official, current documentation instead of memory. Use when building with any framework or library where correctness matters, when using an API you're not certain about, or when you want code free of outdated or hallucinated patterns."
 ---
+
+## Autopilot handoff
+
+Record the actual runtime/toolchain/provider version and authoritative API source used. An installed CLI is not proof of compatibility or Strict isolation. Conformance probes and real execution evidence determine support; unknown capabilities remain blocked.
+
+For assigned factory work, read [the shared runtime contract](../../docs/RUNTIME_CONTRACT.md). It defines authority, proposal fields, approval scope and evidence identity. These skills remain language agnostic; the approved profile selects actual commands.
+
 
 # Source-Driven Development
 
